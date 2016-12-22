@@ -1,91 +1,82 @@
-# Angular 2
+# Course Project
+_Single-page Applications with Angular 2_
 
-Repository for the course [Angular-2](http://telerikacademy.com/Courses/Courses/Details/391) at [Telerik Academy](https://telerikacademy.com)
+This document describes the **course project assignment** for the [Single-page Applications with Angular 2](telerikacademy.com/courses/courses/Details/391) at Telerik Academy.
 
-## Course program
+## Project Description
 
-### [00. Course-Introduction](./Topics/00. Course-Introduction)
+Design and implement a **Single-page application** using [Angular 2](https://angular.io/)
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/00.%20Course-Introduction/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/00.%20Course-Introduction/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/00.%20Course-Introduction/homework)
-### [01. Angular-2-Overview](./Topics/01. Angular-2-Overview)
+It can be a discussion forum, blog system, e-commerce site, online gaming site, social network, or any other web application by your choice.
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/01.%20Angular-2-Overview/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/01.%20Angular-2-Overview/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/01.%20Angular-2-Overview/homework)
-### [02. TypeScript Overview](./Topics/02. TypeScript Overview)
+The application should have a:
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/02.%20TypeScript%20Overview/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/02.%20TypeScript%20Overview/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/02.%20TypeScript%20Overview/homework)
-### [03. Defining Classes](./Topics/03. Defining Classes)
+- **public part** (accessible without authentication)
+- **private part** (available for registered users)
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/03.%20Defining%20Classes/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/03.%20Defining%20Classes/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/03.%20Defining%20Classes/homework)
-### [05. Setup-and-Architecture](./Topics/05. Setup-and-Architecture)
+### Public Part
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/05.%20Setup-and-Architecture/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/05.%20Setup-and-Architecture/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/05.%20Setup-and-Architecture/homework)
-### [06. Ng-Modules](./Topics/06. Ng-Modules)
+The **public part** of your projects should be **visible without authentication**.
+This public part could be the application start page, application statistics, the user login and user registration forms, as well as the public data of the users, e.g. the blog posts in a blog system, the public offers in a bid system, the products in an e-commerce system, etc.
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/06.%20Ng-Modules/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/06.%20Ng-Modules/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/06.%20Ng-Modules/homework) 
-### [07. Components](./Topics/07. Components)
+### Private Part (Registered users area)
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/07.%20Components/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/07.%20Components/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Components/homework)
+**Registered users** should have personal area in the web application accessible after **successful login**.
+This area could hold for example the user's profiles management functionality, the user's offers in a bid system, the user's posts in a blog system, the user's photos in a photo sharing system, the user's contacts in a social network, etc.
 
-### [08. Data Binding](./Topics/08. Data-Binding)
+## Technical Requirements
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/08.%20Data-Binding/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/07.%20Components/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Components/homework)
+Your Web application should use the following technologies, frameworks and development techniques:
 
+- At least **8 different public dynamic web pages**
+- At least **7 different private (authenticated) dynamic web pages**
+- At least **10 different** partial components
+  - Partial, as not a whole page
+- Responsive UI with good UX
+- Most of the data should be loaded from a web server
+  - You can use Firebase, parse.com, Telerik Back-end Services, or any other
+  - You can use your own server written on Node.js, ASP.NET, or any other framework
+- Load all data using services
+- Use animations
+- Create at least **3 different pipes**
+- Create at least **3 different directives**
+- Setup and use tslint
+- Use **TypeScript**
+- Use the **best practices** for software development and Object-oriented design
+- Use Dependency Injection
 
-### [09. Pipes-and-Directives](./Topics/09. Pipes-and-Directives)
+##  General Requirements
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/09.%20Pipes-and-Directives/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/09.%20Pipes-and-Directives/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Components/homework)
+- Use Git
+  - Github, Gitlab, Bitbucket, or other
+- Brief **documentation** of the project and the project architecture
+  - As `README.md` file at the root of the github repository
 
-### [10. Forms-and-Form-controls](./Topics/10. Forms-and-Form-controls)
+### Deliverables
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/10.%20Forms-and-Form-controls/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/10.%20Forms-and-Form-controls/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Components/homework)
+- Record a short video showcasing your application
+  - ~1-2 minutes, just show the interesting features
+  - Do not record register/login functionality, this is not interesting...
+- Upload your application in the cloud
+  - MS Azure, HerokuCloud, Amazon, all are fine
+- Register your application at [Our Showcase System](http://best.telerikacademy.com)
+  - Link to the live application
+  - Link to the video
+  - Link to the github repository
 
-### [11. Angular-CLI](./Topics/11. Angular-CLI)
+### Public Project Defense
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/11.%20Angular-CLI/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/11.%20Angular-CLI/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Components/homework)
+Each team will have to make a **public defense** of its work in front of a trainer (for about 30 minutes), in which each of the team members will answer to the trainer's questions individually.
 
-### [12. Services-and-DI](./Topics/12. Services-and-DI)
+The public defense includes:
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Angular-2/master/Topics/12.%20Services-and-DI/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/12.%20Services-and-DI/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Components/homework)
+- Live **demonstration** of the developed web application (prepare sample data).
+- Explain application structure and its back-end and front-end **source code**
+- Show the **commit logs** in the source control repository to prove a contribution from all team members.
+- May include a simple task for each team member
+  - The task must be implemented immediately
 
-Angular 2 е най-новата технология, чиято първа стабилна версия стана публична през септември 2016 г. Angular 2 е технология за създаване на front-end-а на уеб приложения по лесен и бърз начин. По подразбиране Angular 2 ни дава възможност да използваме на TypeScript, но също така може да бъдат използвани JavaScript или Dart. Курсът ще се води на TypeScript.
+### Give Feedback about Your Teammates
 
-##  Какво ще покрием в курса?
-
-Курсът ще започне с няколко лекции, в които ще разгледаме синтаксиса на TypeScript: типове данни, условни оператори, класове, интерфейси, декоратори и други.
-След това ще навлезем в Angular 2, ще видим как се можем да направим нашия код преизполозваем (reusable), използвайки модули, компоненти, директиви и др. Ще визуализираме данните чрез data-binding. Ще си поговорим и какво е Model-View-Controller (MVC). MVC е built-in в Angular 2 приложенията.
-
-##  Практически упражнения
-
-Курсът ще включва много практически упражнение под формата на домашни работи, workshops с помощ от лекторите и няколко демонстрации на живо, където лекторът ще пише код заедно с курсистите.
-
-##  Изпит
-
-Курсът ще завърши с курсов проект. Курсистите ще бъдат разделени на отбори по 3-ма човека, и ще трябва да защитят направения проект в началото на януари.
-
-##  Как мога да се запиша?
-
-Курсът може да бъде записан присъствено само от курсисти в присъствена форма на обучение в Софтуерната Академия на Телерик. За всички останали, курсът е отворен и всеки може да се запише онлайн, като гледа нашите онлайн материали, състави проект и се яви на защита на курсовия си проект.
-
-Повече информация може да намерите на нашия уеб сайт [link](http://academy.telerik.com) 
-
-## Програма на курса
-
-01. Angular 2 Essentials
-02. TypeScript Overview and Tools
-03. TypeScript Fundamentals
-04. TypeScript OOP
-05. Setup and Architecture
-06. Modules
-07. Components, Templates, Data Binding
-08. Components Interaction
-09. Directives and Pipes
-10. Forms
-11. Animations
-12. Angular CLI
-13. Services and DI
-14. Observables (RxJs)
-15. Lifecycle Hooks
-16. Http
-17. Routing and Route Guards
-18. JIT and AOT compilation
-19. KendoUI for Angular 2
+You will be invited to **provide feedback** about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc.
+The feedback is important part of the project evaluation so **take it seriously** and be honest.
