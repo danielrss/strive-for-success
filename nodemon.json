@@ -1,0 +1,15 @@
+{
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "dist"
+  ],
+  "events": {
+    "restart": "npm run build"
+  },
+  "watch": [
+    "client/",
+    "server/"
+  ],
+  "ext": "ts js json html"
+}
