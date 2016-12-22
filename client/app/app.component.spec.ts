@@ -1,11 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { DemoComponent } from './components/demo-component.component';
 
 describe('App', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [AppComponent]
+            declarations: [AppComponent, DemoComponent]
         });
     });
 

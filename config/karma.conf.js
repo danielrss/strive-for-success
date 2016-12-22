@@ -7,14 +7,11 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
 
     files: [
-      {pattern: './config/karma-test-shim.js', watched: false}
+      { pattern: './config/spec-bundle.js', watched: false }
     ],
 
     preprocessors: {
-      './config/karma-test-shim.js': ['webpack', 'sourcemap'],
-      './src/**/!(*.spec).(ts|js)': [
-        'sourcemap'
-      ]
+      './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap']
     },
 
     webpack: webpackConfig,
@@ -23,16 +20,26 @@ module.exports = function (config) {
       stats: 'errors-only'
     },
 
+    coverageReporter: {
+      type: 'in-memory'
+    },
+
+    remapCoverageReporter: {
+      'text-summary': null,
+      json: './coverage/coverage.json',
+      html: './coverage/html'
+    },
+
     webpackServer: {
       noInfo: true
     },
 
-    reporters: ['progress'],
+    reporters: ['mocha', 'coverage', 'remap-coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     singleRun: true
   };
 
