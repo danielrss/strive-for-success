@@ -24,15 +24,6 @@ let UserSchema = new Schema({
         maxlength: [50, 'Name is too long!'],
         match: LETTERS
     },
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        dropDups: true,
-        minlength: [3, 'Name is too short!'],
-        maxlength: [50, 'Name is too long!'],
-        match: ALPHA_PATTERN
-    },
     age: {
         type: Number,
     },
@@ -84,7 +75,13 @@ let UserSchema = new Schema({
             email: String,
             picture: String
         }
-    }
+    },
+    interview: {},
+    projects: [{}],
+    favouriteQuotes: [{}],
+    favouritePeople: [{}],
+    favouriteInterviews: [{}],
+    peopleWhoStarredThis: [{}]
 });
 
 UserSchema
