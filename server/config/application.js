@@ -2,7 +2,7 @@
 
 const express = require('express'),
     // bodyParser = require('body-parser'),
-    // session = require('express-session'),
+    session = require('express-session'),
     // cookieParser = require('cookie-parser'),
     passport = require('passport'),
     path = require('path');
@@ -16,11 +16,11 @@ module.exports = function(config){
     // app.use(bodyParser.json());
     // app.use(bodyParser.urlencoded({ extended: true }));
     // app.use(cookieParser());
-    // app.use(session({
-    //     secret: config.sessionSecret,
-    //     resave: true,
-    //     saveUninitialized: true
-    // }));
+    app.use(session({
+        secret: config.sessionSecret,
+        resave: true,
+        saveUninitialized: true
+    }));
     // app.use(passport.initialize());
     // app.use(passport.session());
 
