@@ -18,7 +18,7 @@ module.exports = function(models) {
                 });
             });
         },
-        
+
         getInterviewById(id) {
             return new Promise((resolve, reject) => {
                 Interview.findOne({ _id: id }, (err, interview) => {
@@ -70,7 +70,7 @@ module.exports = function(models) {
                     return resolve(interviews);
                 });
             });
-        },        
+        },
         getAllInterviewsNotShownInHome() {
             return new Promise((resolve, reject) => {
                 Interview.find({ isShownInHome: false, isDeleted: false }, (err, interviews) => {
@@ -79,6 +79,17 @@ module.exports = function(models) {
                     }
 
                     return resolve(interviews);
+                });
+            });
+        },
+        getAllInterviews() {
+            return new Promise((resolve, reject) => {
+                Interview.find((err, users) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(users);
                 });
             });
         }

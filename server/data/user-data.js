@@ -32,51 +32,6 @@ module.exports = function(models) {
                 });
             });
         },
-        getUserByFacebookId(id) {
-            return new Promise((resolve, reject) => {
-                User.findOne({ 'socialLogins.facebook.id': id }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-
-                    if (!user) {
-                        resolve(null, false);
-                    }
-
-                    return resolve(user);
-                });
-            });
-        },
-        getUserByGoogleplusId(id) {
-            return new Promise((resolve, reject) => {
-                User.findOne({ 'socialLogins.googlePlus.id': id }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-
-                    if (!user) {
-                        resolve(null, false);
-                    }
-
-                    return resolve(user);
-                });
-            });
-        },
-        getUserByTwitterId(id) {
-            return new Promise((resolve, reject) => {
-                User.findOne({ 'socialLogins.twitter.id': id }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-
-                    if (!user) {
-                        resolve(null, false);
-                    }
-
-                    return resolve(user);
-                });
-            });
-        },
         findUserByIdAndUpdate(id, update) {
             return new Promise((resolve, reject) => {
                 User.findOneAndUpdate({ _id: id }, update, { new: true }, (err, user) => {
@@ -92,7 +47,7 @@ module.exports = function(models) {
                 });
             });
         },
-        getUserByName(name) {
+        getUserByFirstname(name) {
             return new Promise((resolve, reject) => {
                 User.findOne({ firstName: name }, (err, user) => {
                     if (err) {
@@ -119,6 +74,17 @@ module.exports = function(models) {
                     }
 
                     return resolve(user);
+                });
+            });
+        },
+        getAllUsers() {
+            return new Promise((resolve, reject) => {
+                User.find((err, users) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(users);
                 });
             });
         }
