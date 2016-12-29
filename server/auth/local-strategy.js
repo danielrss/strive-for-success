@@ -2,10 +2,10 @@
 
 const LocalStrategy = require('passport-local');
 
-module.exports = function (passport, data) {
+module.exports = function(passport, data) {
     const authStrategy = new LocalStrategy(
-        function (username, password, done) {
-            data.getUserByName(username)
+        function(firstName, password, done) {
+            data.getUserByName(firstName)
                 .then(user => {
                     if (user && user.authenticatePassword(password)) {
                         done(null, user);

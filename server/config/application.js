@@ -1,14 +1,14 @@
 'use strict';
 
 const express = require('express'),
-    // bodyParser = require('body-parser'),
+    //bodyParser = require('body-parser'),
     session = require('express-session'),
-    // cookieParser = require('cookie-parser'),
-    passport = require('passport'),
+    //cookieParser = require('cookie-parser'),
+    //passport = require('passport'),
     path = require('path');
 
 /* Setup App */
-module.exports = function(config){
+module.exports = function(config) {
     let app = express();
 
     app.use(express.static(path.join(__dirname, '../../dist')));
@@ -24,7 +24,7 @@ module.exports = function(config){
     // app.use(passport.initialize());
     // app.use(passport.session());
 
-    app.start = function(){
+    app.start = function() {
         const port = config.port;
         app.listen(port, () => console.log(`App running at: http://localhost:${port}`));
     };
