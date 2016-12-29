@@ -24,10 +24,10 @@ module.exports = function(config) {
     // app.use(passport.initialize());
     // app.use(passport.session());
 
-    // app.start = function(){
-    //     const port = config.port;
-    //     app.listen(port, () => console.log(`App running at: http://localhost:${port}`));
-    // };
+    app.start = function() {
+        const port = config.port;
+        app.listen(port, () => console.log(`App running at: http://localhost:${port}`));
+    };
 
     return app;
 };

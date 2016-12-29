@@ -1,0 +1,20 @@
+{
+  "name": "strive-for-success",
+  "description": "Telerik Software Academy - Angular 2 Team Project",
+  "main": "",
+  "authors": [
+    "TeamTODOPASS"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/TeamTODOPASS/strive-for-success",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -94,7 +94,7 @@ module.exports = function(models) {
         },
         getUserByName(name) {
             return new Promise((resolve, reject) => {
-                User.findOne({ username: name }, (err, user) => {
+                User.findOne({ firstName: name }, (err, user) => {
                     if (err) {
                         return reject(err);
                     }
