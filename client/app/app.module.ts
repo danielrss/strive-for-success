@@ -42,7 +42,8 @@ import { APP_ROUTES } from './app.router';
     ],
     providers: [ 
       Services.ApiService, 
-      Services.UserService 
+      Services.UserService,
+      Services.UsersFactoryService
     ],
     bootstrap: [AppComponent]
 })
