@@ -23,13 +23,13 @@ import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
 
 export const APP_ROUTES: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'interviews',
         component: InterviewsMainComponent,
         children: [
             { path: 'all', component: InterviewsAllComponent },
             { path: ':id', component: InterviewDetailsComponent },
-            // { path: 'bussiness', component: InterviewsBussinessComponent },
+            // { path: 'business', component: InterviewsBusinessComponent },
             // { path: 'art', component: InterviewaArtComponent },
             // { path: 'technology', component: InterviewsTechnologyComponent }
         ]
