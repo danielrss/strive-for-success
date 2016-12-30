@@ -6,15 +6,21 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Router } from '@angular/router';
 
 /* Custom Modules */
-import { UserModule } from './user/user.module';
-import { HomeModule } from './home/home.module';
+import { UserModule } from './user';
+import { InterviewModule } from './interviews';
+import { ProfileModule } from './profiles';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './navigation';
+import { HomeComponent } from './home';
+import { ContactComponent } from './contact'
 
 /* Services */
 import * as Services from '../core/services';
+
+/* Router */
+import { APP_ROUTES } from './app.router';
 
 @NgModule({
     imports: [
@@ -22,17 +28,17 @@ import * as Services from '../core/services';
       FormsModule, 
       HttpModule,
 
-      RouterModule.forRoot([
-        { path: '', redirectTo: '/', pathMatch: 'full' },
-        { path: '**', redirectTo: '/', pathMatch: 'full' }
-      ], { useHash: true }),
+      RouterModule.forRoot(APP_ROUTES, { useHash: true }),
       
       UserModule,
-      HomeModule
+      InterviewModule,
+      ProfileModule
     ],
     declarations: [
       AppComponent, 
-      NavigationComponent
+      NavigationComponent,
+      HomeComponent,
+      ContactComponent
     ],
     providers: [ 
       Services.ApiService, 
