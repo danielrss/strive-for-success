@@ -13,11 +13,15 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+/* Services */
+import * as Services from '../core/services';
+
 @NgModule({
     imports: [
       BrowserModule, 
       FormsModule, 
       HttpModule,
+
       RouterModule.forRoot([
         { path: '', redirectTo: '/', pathMatch: 'full' },
         { path: '**', redirectTo: '/', pathMatch: 'full' }
@@ -26,8 +30,14 @@ import { NavigationComponent } from './navigation/navigation.component';
       UserModule,
       HomeModule
     ],
-    declarations: [AppComponent, NavigationComponent],
-    providers: [],
+    declarations: [
+      AppComponent, 
+      NavigationComponent
+    ],
+    providers: [ 
+      Services.ApiService, 
+      Services.UserService 
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
