@@ -36,7 +36,8 @@ import * as Services from '../core/services';
     ],
     providers: [ 
       Services.ApiService, 
-      Services.UserService 
+      Services.UserService,
+      Services.UsersFactoryService
     ],
     bootstrap: [AppComponent]
 })

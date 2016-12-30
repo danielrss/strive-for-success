@@ -8,19 +8,32 @@ import { User } from '../models/user';
 
 @Injectable()
 export class UserService {
-    private path: string = '/users'
+    private usersPath: string = '/users';
+    private registerPath: string = '/register';
+    private loginPath: string = '/login';
+    private logoutPath: string = '/logout';
 
     constructor(private api: ApiService){
 
     }
 
-    getUsers() : Observable<any> {
-        return this.api.get(this.path);
+    getUsers() : Observable<User[]> {
+        return this.api.get(this.usersPath);
     }
-    createUser(user: User) : Observable<any> {
-        return this.api.post(this.path, user);
+
+    registerUser(user: User) : Observable<any> {
+        return this.api.put(this.registerPath, user);
     }
+
+    loginUser(user: User) {
+
+    }
+
+    logoutUser(user: User) {
+
+    }
+
     deleteUser(user: User) : Observable<any> {
-        return this.api.delete(`${this.path}/${user._id}`);
+        return this.api.delete(`${this.usersPath}/${user._id}`);
     }
  }

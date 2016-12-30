@@ -48,6 +48,16 @@ export class ApiService {
             .catch(err=>Observable.throw(err))
             .map(this.getJson)
     }
+
+    put(path: string, data: any) : Observable<any>{
+        return this.http.put(
+            `${this.baseUrl}${path}`,
+            JSON.stringify(data),
+            { headers: this.headers })
+            .map(this.checkForErrors)
+            .catch(err=>Observable.throw(err))
+            .map(this.getJson)
+    }
     delete(path: string) : Observable<any>{
         return this.http.delete(
             `${this.baseUrl}${path}`,
