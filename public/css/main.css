@@ -81,12 +81,9 @@ h3 {
   background-color: rgba(0,0,0,.2);
 }
 
-.navbar-brand {
- margin-top: 0px;
-}
 .navbar-brand h1 {
   margin-top: 0px;
-  width: 58px;
+  width: 55px;
 }
 
 a {
@@ -107,7 +104,7 @@ a:hover {
   padding-bottom:90px;
 }
 
-.preloader {
+/*.preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -128,7 +125,7 @@ a:hover {
   margin-top: -15px;
   margin-left: -15px;
   display: inline-block;
-}
+}*/
 
 
 /*************************
@@ -189,6 +186,7 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  background-image: url('../images/home-bg.jpg')
 }
 
 .carousel-fade .carousel-inner .item:after {
@@ -220,10 +218,60 @@ a:hover {
   z-index: 2;
 }
 
+#contact-us {
+  background-image:url(../images/contact-bg.jpg);
+  padding-bottom: 90px; 
+}
 
+#contact-us .heading {
+  padding-top: 70px;
+}
 
+#main-contact-form .form-control {
+  background-color: transparent;
+  border-color: rgba(255,255,255,.1);
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+}
 
+textarea.form-control {
+  min-height: 180px;
+  resize:none;
+}
 
+.form-group {
+  margin-bottom: 30px;
+}
+
+.contact-info {
+  padding-left:70px;
+  font-weight: 300;
+}
+
+ul.address {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 8px;
+}
+
+.contact-info ul li a {
+  color: #fff;
+}
+
+.btn-submit {
+  display: block;
+  padding: 12px;
+  width: 100%;
+  color: #fff;
+  border:0;
+  margin-top: 40px;
+}
 
 
 
