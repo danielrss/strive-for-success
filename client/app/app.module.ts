@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 /* Custom Modules */
 import { UserModule } from './user';
@@ -14,7 +14,7 @@ import { ProfileModule } from './profiles';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation';
 import { HomeComponent } from './home';
-import { ContactComponent } from './contact'
+import { ContactComponent } from './contact';
 
 /* Services */
 import * as Services from '../core/services';
@@ -24,24 +24,24 @@ import { APP_ROUTES } from './app.router';
 
 @NgModule({
     imports: [
-      BrowserModule, 
-      FormsModule, 
+      BrowserModule,
+      FormsModule,
       HttpModule,
 
       RouterModule.forRoot(APP_ROUTES, { useHash: true }),
-      
+
       UserModule,
       InterviewModule,
       ProfileModule
     ],
     declarations: [
-      AppComponent, 
+      AppComponent,
       NavigationComponent,
       HomeComponent,
       ContactComponent
     ],
-    providers: [ 
-      Services.ApiService, 
+    providers: [
+      Services.ApiService,
       Services.UserService,
       Services.UsersFactoryService
     ],

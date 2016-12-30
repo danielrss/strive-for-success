@@ -15,7 +15,6 @@ module.exports = function(app, express, data) {
     // .get('/auth/twitter', authController.loginTwitter())
     // .get('/auth/twitter/callback', authController.loginTwitterCallback())
     // .get('/logout', authController.logout)
-        .get('/register', userController.getRegister)
         .put('/register', authController.register)
         .post('/register', authController.register);
     // .get('/profile', userController.getProfile)

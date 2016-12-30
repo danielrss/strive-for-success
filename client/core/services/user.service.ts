@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http'; 
+import { Http, Headers, Response } from '@angular/http';
 import { Observable} from 'rxjs/Observable';
 
 import { ApiService } from './api.service';
@@ -13,15 +13,15 @@ export class UserService {
     private loginPath: string = '/login';
     private logoutPath: string = '/logout';
 
-    constructor(private api: ApiService){
+    constructor(private api: ApiService) {
 
     }
 
-    getUsers() : Observable<User[]> {
+    getUsers(): Observable<User[]> {
         return this.api.get(this.usersPath);
     }
 
-    registerUser(user: User) : Observable<any> {
+    registerUser(user: User): Observable<any> {
         return this.api.put(this.registerPath, user);
     }
 
@@ -33,7 +33,7 @@ export class UserService {
 
     }
 
-    deleteUser(user: User) : Observable<any> {
+    deleteUser(user: User): Observable<any> {
         return this.api.delete(`${this.usersPath}/${user._id}`);
     }
  }

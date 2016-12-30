@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http'; 
+import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class ApiService { 
+export class ApiService {
     private headers: Headers = new Headers({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-    })
+    });
 
-    private http: Http;
     private baseUrl: string = 'http://localhost:3003';
 
-    constructor(http: Http){
-        this.http=http;
-    }
+    constructor(private http: Http) {}
 
     private checkForErrors(resp: Response){
-        if(resp.status >= 200 && resp.status < 300){
+        if (resp.status >= 200 && resp.status < 300){
             return resp;
         } else {
             let error = new Error(resp.statusText);
@@ -27,43 +24,45 @@ export class ApiService {
         }
     }
 
-    private getJson(resp: Response){
+    private getJson(resp: Response) {
         return resp.json;
     }
-    get(path: string) : Observable<any> {
+
+    get(path: string): Observable<any> {
         return this.http.get(
-            `${this.baseUrl}${path}`,
-            { headers: this.headers })
+                `${this.baseUrl}${path}`,
+                { headers: this.headers })
             .map(this.checkForErrors)
-            .catch(err=>Observable.throw(err))
-            .map(this.getJson)
+            .catch(err => Observable.throw(err))
+            .map(this.getJson);
     }
 
-    post(path: string, data: any) : Observable<any>{
+    post(path: string, data: any): Observable<any>{
         return this.http.post(
-            `${this.baseUrl}${path}`,
-            JSON.stringify(data),
-            { headers: this.headers })
+                `${this.baseUrl}${path}`,
+                JSON.stringify(data),
+                { headers: this.headers })
             .map(this.checkForErrors)
-            .catch(err=>Observable.throw(err))
-            .map(this.getJson)
+            .catch(err => Observable.throw(err))
+            .map(this.getJson);
     }
 
-    put(path: string, data: any) : Observable<any>{
+    put(path: string, data: any): Observable<any>{
         return this.http.put(
-            `${this.baseUrl}${path}`,
-            JSON.stringify(data),
-            { headers: this.headers })
+                `${this.baseUrl}${path}`,
+                JSON.stringify(data),
+                { headers: this.headers })
             .map(this.checkForErrors)
-            .catch(err=>Observable.throw(err))
-            .map(this.getJson)
+            .catch(err => Observable.throw(err))
+            .map(this.getJson);
     }
-    delete(path: string) : Observable<any>{
+
+    delete(path: string): Observable<any>{
         return this.http.delete(
-            `${this.baseUrl}${path}`,
-            { headers: this.headers })
+                `${this.baseUrl}${path}`,
+                { headers: this.headers })
             .map(this.checkForErrors)
-            .catch(err=>Observable.throw(err))
-            .map(this.getJson)
+            .catch(err => Observable.throw(err))
+            .map(this.getJson);
     }
 }

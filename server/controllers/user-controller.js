@@ -5,15 +5,5 @@ const helpers = require('../helpers'),
 
 module.exports = function(data) {
     return {
-        getRegister(req, res) {
-            return Promise.resolve()
-                .then(() => {
-                    if (!req.isAuthenticated()) {
-                        res.render('/register');
-                    } else {
-                        res.redirect('/home');
-                    }
-                });
-        },
     };
 };

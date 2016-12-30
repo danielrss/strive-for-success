@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http'; 
-import { Observable} from 'rxjs/Observable';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 import { ApiService } from './api.service';
 
@@ -11,17 +11,19 @@ const Login = '/login';
 
 @Injectable()
 export class AuthService {
-    constructor(private http: Http, private api: ApiService){
+    constructor(private http: Http, private api: ApiService) {
 
     }
 
-    register(user: User){
+    register(user: User) {
 
     }
-    login(user: NavigatorUserMediaSuccessCallback){
+
+    login(user: NavigatorUserMediaSuccessCallback) {
 
     }
-    logout(){
+
+    logout() {
 
     }
 }

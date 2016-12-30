@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { 
+import {
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    MyProfileComponent 
+    MyProfileComponent
 } from './user';
 
 import {
@@ -38,10 +38,10 @@ export const APP_ROUTES: Routes = [
         component: ProfilesMainComponent,
         children: [
             { path: 'all', component: ProfilesAllComponent },
-            { 
+            {
                 path: ':id', component: ProfileDetailsComponent,
                 // children: [
-                //     { 
+                //     {
                 //         path: 'projects', component: ProjectsComponent,
                 //         children: [
                 //             { path: 'preview/:id', component: ProjectPreviewComponent }
