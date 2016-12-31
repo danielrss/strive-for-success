@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation';
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
+import { AlertComponent } from './directives';
 
 /* Models */
 import { User } from '../core/models/user'
@@ -42,12 +43,14 @@ import { APP_ROUTES } from './app.router';
       AppComponent,
       NavigationComponent,
       HomeComponent,
-      ContactComponent
+      ContactComponent,
+      AlertComponent
     ],
     providers: [
       Services.ApiService,
       Services.UserService,
-      Services.UsersFactoryService
+      Services.UsersFactoryService,
+      Services.AlertService
     ],
     bootstrap: [AppComponent]
 })

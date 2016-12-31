@@ -2,34 +2,34 @@
     background-image: url('../../../../public/images/reg.png');
 }
 
-h2,
-h3 {
+.register h2,
+.register h3 {
     color: #fff;
     padding-top: 20px;
-}
-
-h2,
-h3,
-.login-block {
     text-align: center;
 }
 
 .login-block {
+    text-align: center;
     font-size: 30px;
 }
 
-a {
+.register a {
     font-size: 24px;
     text-decoration: underline;
 }
 
-label {
+.register label {
     margin-left: 15px;
     color: #19b9e7;
 }
 
-.form-horizontal {
+.register .form-horizontal {
     margin-left: 280px;
+}
+
+.register .form-control {
+    color: black;
 }
 
 button {
