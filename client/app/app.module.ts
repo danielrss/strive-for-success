@@ -1,10 +1,11 @@
 /* App Modules */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { User } from '../core/models/user'
 /* Custom Modules */
 import { UserModule } from './user';
 import { InterviewModule } from './interviews';
@@ -26,6 +27,7 @@ import { APP_ROUTES } from './app.router';
     imports: [
       BrowserModule,
       FormsModule,
+      ReactiveFormsModule,
       HttpModule,
 
       RouterModule.forRoot(APP_ROUTES, { useHash: true }),
