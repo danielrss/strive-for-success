@@ -51,7 +51,7 @@ import { AuthGuard } from './guards/auth.guard';
       Services.ApiService,
       Services.UserService,
       Services.UsersFactoryService,
-      Services.AlertService
+      Services.AlertService,
       Services.AuthService,
       AuthGuard
     ],
