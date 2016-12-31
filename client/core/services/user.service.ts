@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable} from 'rxjs/Observable';
 
 import { ApiService } from './api.service';
+import { AuthService } from './auth.service';
 
 import { User } from '../models/user';
 
@@ -13,9 +14,7 @@ export class UserService {
     private loginPath: string = '/users/login';
     private logoutPath: string = '/users/logout';
 
-    constructor(private api: ApiService) {
-
-    }
+    constructor(private api: ApiService, private authService: AuthService) {}
 
     getUsers(): Observable<User[]> {
         return this.api.get(this.usersPath);
@@ -26,11 +25,19 @@ export class UserService {
     }
 
     loginUser(email: string, password: string) {
-        return this.api.post(this.loginPath, { email, password })
+        return this.api.post(this.loginPath, { username: email, password })
     }
 
     logoutUser(user: User) {
+        localStorage.clear();
+    }
 
+    isLoggedIn() {
+        return this.authService.isLoggedIn();
+    }
+
+    setLoggedUser(authResponse: any) {
+        localStorage.setItem('user', JSON.stringify(authResponse));
     }
 
     deleteUser(user: User): Observable<any> {

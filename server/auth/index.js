@@ -2,7 +2,7 @@
 
 const passport = require('passport');
 
-module.exports = function(app, data) {
+module.exports = function(app, config, data) {
     passport.serializeUser((user, done) => {
         if (user) {
             done(null, user.id);
@@ -16,6 +16,5 @@ module.exports = function(app, data) {
     });
 
     require('./local-strategy')(passport, data);
-    // require('./google-plus-strategy')(passport, data);
-    // require('./twitter-strategy')(passport, data);
+    require('./jwt-strategy')(passport, app, config.webTokenSecret, data);
 };

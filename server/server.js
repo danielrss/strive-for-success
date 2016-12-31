@@ -5,7 +5,7 @@ const app = require('./config/application')(config);
 const data = require('./data')();
 
 require('./config/database')(config.connectionString);
-require('./auth')(app, data);
+require('./auth')(app, config, data);
 require('./routers')(app, data);
 
 let interview1 = {

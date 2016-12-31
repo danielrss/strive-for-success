@@ -1,57 +1,67 @@
 'use strict';
-const tokenKey = require('../config').sessionSecret,
-    passport = require('passport'),
+const webTokenSecret = require('../config').webTokenSecret,
     helpers = require('../helpers'),
-    jwt = require('jwt-simple');
+    jwt = require('jsonwebtoken');
 
 module.exports = function(data) {
     return {
         register(req, res) {
             const user = req.body;
-
-            return Promise.resolve()
-                .then(() => {
-                    res.status(200).json(data.createUser(user));
+            return data.getUserByEmail(user.email)
+                .then(user => {
+                    if (user) {
+                        throw new Error('Email already exists.');
+                    }
                 })
-                .catch(error => {
+                .then(() => {
+                    return data.createUser(user);
+                })
+                .then(() => {
+                    res.status(200).json({ message: 'success' });
+                })
+                .catch((err) => {
                     res.status(400)
-                        .send(JSON.stringify({ validationErrors: helpers.errorHelper(error) }));
+                        .send(JSON.stringify({ validationErrors: helpers.errorHelper(err) }));
                 });
         },
-        loginLocal(req, res, next) {
-            const auth = passport.authenticate('local', function(error, user) {
-                if (error) {
-                    next(error);
-                    return;
-                }
+        login(req, res, next) {
+            const webTokenObject = {
+                _id: req.user.id,
+                username: req.user.email
+            };
 
-                if (!user) {
-                    res.status(400);
-                    return res.json({
-                        success: false,
-                        message: 'Invalid name or password!'
-                    });
-                }
-
-                req.login(user, error => {
-                    if (error) {
-                        next(error);
-                        return;
-                    }
-
-                    let token = jwt.encode(user, tokenKey);
-                    res.status(200)
-                        .json({
-                            success: true,
-                            token
-                        });
-                });
+            res.status(200).json({
+                username: req.user.email,
+                auth_token: jwt.sign(webTokenObject, webTokenSecret)
             });
+        },
+        authenticate(req, res) {
+            let token = req.get('AuthToken');
 
-            return Promise.resolve()
-                .then(() => {
-                    auth(req, res, next);
-                });
-        }
+            if (token) {
+                let decoded = jwt.decode(token, webTokenSecret);
+
+                return data.getUserByEmail(decoded.username)
+                    .then((user, err) => {
+                        if (!user) {
+                            return res.json({ success: false, message: 'No user.' });
+                        } else {
+                            res.json({
+                                success: true,
+                                user: {
+                                    token,
+                                    username: user.email,
+                                    firstname: user.firstname,
+                                    lastname: user.lastname,
+                                    _id: user._id
+                                }
+                            });
+                        }
+                    });
+            }
+            else {
+                return res.json({ success: false, message: 'No token!' });
+            }
+        },
     };
 };

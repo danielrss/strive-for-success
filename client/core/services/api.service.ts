@@ -25,7 +25,7 @@ export class ApiService {
     }
 
     private getJson(resp: Response) {
-        return resp.json;
+        return resp.json();
     }
 
     get(path: string): Observable<any> {
@@ -37,11 +37,11 @@ export class ApiService {
             .map(this.getJson);
     }
 
-    post(path: string, data: any): Observable<any>{
+    post(path: string, data: any, headers: any = this.headers): Observable<any>{
         return this.http.post(
                 `${this.baseUrl}${path}`,
                 JSON.stringify(data),
-                new RequestOptions({ headers: this.headers }))
+                new RequestOptions({ headers }))
             .map(this.checkForErrors)
             .catch(err => Observable.throw(err))
             .map(this.getJson);

@@ -3,7 +3,7 @@
 const express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
-    //cookieParser = require('cookie-parser'),
+    cookieParser = require('cookie-parser'),
     passport = require('passport'),
     path = require('path');
 
@@ -15,13 +15,20 @@ module.exports = function(config) {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(cookieParser());
     app.use(session({
         secret: config.sessionSecret,
         resave: true,
         saveUninitialized: true
     }));
-    app.use(passport.initialize());
-    app.use(passport.session());
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
+
+        res.setHeader('Cache-Control', 'no-cache');
+        next();
+    });
 
     app.start = function() {
         const port = config.port;
