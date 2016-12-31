@@ -11,11 +11,7 @@ module.exports = function(data) {
 
             return Promise.resolve()
                 .then(() => {
-                    if (!req.isAuthenticated()) {
-                        return data.createUser(user);
-                    } else {
-                        res.json('registered successfully');
-                    }
+                    res.status(200).json(data.createUser(user));
                 })
                 .catch(error => {
                     res.status(400)

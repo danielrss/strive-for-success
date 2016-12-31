@@ -12,8 +12,7 @@ import { MyProfileComponent } from './profile/my-profile.component';
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule,
-        RouterModule
+        ReactiveFormsModule
     ],
     declarations: [
         LoginComponent,

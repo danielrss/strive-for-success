@@ -62,15 +62,13 @@ export class RegisterComponent implements OnInit {
             );
 
             this.userService.registerUser(this.user)
-                .subscribe(response => {
-                  console.log(response);
-                }, err => {
+                .subscribe(response => { },
+                err => {
                   const message = err.json().message;
-                  console.log(err);
+                  console.log(err); // TODO: show error to user
                 }, () => {
-                  console.log('redirect');
-                setTimeout(() => this.router.navigateByUrl('/login'), 500);
-              });
+                  setTimeout(() => this.router.navigateByUrl('/login'), 500);
+                });
         }
     }
 }
