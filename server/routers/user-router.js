@@ -7,7 +7,7 @@ module.exports = function(app, express, data) {
 
     userRouter
     // .get('/login', userController.getLogin)
-    // .post('/login', authController.loginLocal)
+    .post('/login', authController.loginLocal)
     // .get('/auth/facebook', authController.loginFacebook())
     // .get('/auth/facebook/callback', authController.loginFacebookCallback())
     // .get('/auth/google', authController.loginGooglePlus())
@@ -15,7 +15,6 @@ module.exports = function(app, express, data) {
     // .get('/auth/twitter', authController.loginTwitter())
     // .get('/auth/twitter/callback', authController.loginTwitterCallback())
     // .get('/logout', authController.logout)
-        .put('/register', authController.register)
         .post('/register', authController.register);
     // .get('/profile', userController.getProfile)
     // .post('/profile', userController.updateProfile)
@@ -27,5 +26,5 @@ module.exports = function(app, express, data) {
     // .get('/contact', userController.getContactForm)
     // .post('/contact', userController.sendEmail);
 
-    app.use(userRouter);
+    app.use('/api/users', userRouter);
 };

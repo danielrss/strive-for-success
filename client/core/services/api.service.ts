@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -9,11 +9,11 @@ export class ApiService {
         'Accept': 'application/json'
     });
 
-    private baseUrl: string = 'http://localhost:3003';
+    private baseUrl: string = 'http://localhost:3003/api';
 
     constructor(private http: Http) {}
 
-    private checkForErrors(resp: Response){
+    private checkForErrors(resp: Response) {
         if (resp.status >= 200 && resp.status < 300){
             return resp;
         } else {
@@ -41,7 +41,7 @@ export class ApiService {
         return this.http.post(
                 `${this.baseUrl}${path}`,
                 JSON.stringify(data),
-                { headers: this.headers })
+                new RequestOptions({ headers: this.headers }))
             .map(this.checkForErrors)
             .catch(err => Observable.throw(err))
             .map(this.getJson);
