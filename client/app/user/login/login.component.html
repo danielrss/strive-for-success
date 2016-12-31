@@ -8,20 +8,12 @@
                 </div>
 
                 <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal col-sm-6">
-                    <div class="form-group row" [ngClass]="{'has-error': (!firstName.valid && firstName.touched), 'has-success': (firstName.valid && firstName.touched)}">
-                        <label for="inputFirstName3" class="col-sm-20 control-label">First Name</label>
+                    <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+                        <label for="inputEmail" class="col-sm-20 control-label">Email</label>
 
                         <div class="col-sm-12">
-                            <input [formControl]="firstName" type="text" class="form-control" id="inputFirstName3">
-                            <span *ngIf="!firstName.valid && firstName.touched" class="help-block sub-little-text">Invalid First Name!</span>
-                        </div>
-                    </div>
-                    <div class="form-group row" [ngClass]="{'has-error': (!lastName.valid && lastName.touched), 'has-success': (lastName.valid && lastName.touched)}">
-                        <label for="inputLastName3" class="col-sm-20 control-label">Last Name</label>
-
-                        <div class="col-sm-12">
-                            <input [formControl]="lastName" type="text" class="form-control" id="inputLastName3">
-                            <span *ngIf="!lastName.valid && lastName.touched" class="help-block sub-little-text">Invalid Last Name!</span>
+                            <input [formControl]="email" type="text" class="form-control" id="inputEmail">
+                            <span *ngIf="!email.valid && email.touched" class="help-block sub-little-text">Invalid email!</span>
                         </div>
                     </div>
                     <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
