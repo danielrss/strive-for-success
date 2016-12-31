@@ -1,10 +1,10 @@
 'use strict';
 
 const express = require('express'),
-    //bodyParser = require('body-parser'),
+    bodyParser = require('body-parser'),
     session = require('express-session'),
     //cookieParser = require('cookie-parser'),
-    //passport = require('passport'),
+    passport = require('passport'),
     path = require('path');
 
 /* Setup App */
@@ -13,16 +13,15 @@ module.exports = function(config) {
 
     app.use(express.static(path.join(__dirname, '../../dist')));
 
-    // app.use(bodyParser.json());
-    // app.use(bodyParser.urlencoded({ extended: true }));
-    // app.use(cookieParser());
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(session({
         secret: config.sessionSecret,
         resave: true,
         saveUninitialized: true
     }));
-    // app.use(passport.initialize());
-    // app.use(passport.session());
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     app.start = function() {
         const port = config.port;

@@ -16,7 +16,6 @@ module.exports = function(app, data) {
     });
 
     require('./local-strategy')(passport, data);
-    // require('./fb-strategy')(passport, data);
     // require('./google-plus-strategy')(passport, data);
     // require('./twitter-strategy')(passport, data);
 };

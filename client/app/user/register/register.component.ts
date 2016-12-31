@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { User } from '../../../core/models/user';
 import { UserService } from '../../../core/services/user.service';
@@ -59,14 +59,15 @@ export class RegisterComponent implements OnInit {
               values['email'],
               values['passwords']['password']
             );
-            console.log(this.user);
+
             this.userService.registerUser(this.user)
                 .subscribe(response => {
                   console.log(response);
                 }, err => {
                   const message = err.json().message;
                   console.log(err);
-              }, () => {
+                }, () => {
+                  console.log('redirect');
                 setTimeout(() => this.router.navigateByUrl('/login'), 500);
               });
         }

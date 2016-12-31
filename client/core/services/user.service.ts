@@ -9,9 +9,9 @@ import { User } from '../models/user';
 @Injectable()
 export class UserService {
     private usersPath: string = '/users';
-    private registerPath: string = '/register';
-    private loginPath: string = '/login';
-    private logoutPath: string = '/logout';
+    private registerPath: string = '/users/register';
+    private loginPath: string = '/users/login';
+    private logoutPath: string = '/users/logout';
 
     constructor(private api: ApiService) {
 
@@ -22,11 +22,11 @@ export class UserService {
     }
 
     registerUser(user: User): Observable<any> {
-        return this.api.put(this.registerPath, user);
+        return this.api.post(this.registerPath, user);
     }
 
-    loginUser(user: User) {
-
+    loginUser(email: string, password: string) {
+        return this.api.post(this.loginPath, { email, password })
     }
 
     logoutUser(user: User) {

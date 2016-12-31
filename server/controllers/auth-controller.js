@@ -1,29 +1,21 @@
 'use strict';
-const passport = require('passport'),
-    helpers = require('../helpers');
+const tokenKey = require('../config').sessionSecret,
+    passport = require('passport'),
+    helpers = require('../helpers'),
+    jwt = require('jwt-simple');
 
 module.exports = function(data) {
     return {
         register(req, res) {
             const user = req.body;
-            console.log(req.body);
 
             return Promise.resolve()
                 .then(() => {
                     if (!req.isAuthenticated()) {
                         return data.createUser(user);
                     } else {
-                        res.redirect('/home');
+                        res.json('registered successfully');
                     }
-                })
-                .then(dbUser => {
-                    passport.authenticate('local')(req, res, function() {
-                        res.status(200)
-                            .json({
-                                success: true,
-                                message: 'Registration successfull!'
-                            });
-                    });
                 })
                 .catch(error => {
                     res.status(400)
@@ -35,9 +27,6 @@ module.exports = function(data) {
                 if (error) {
                     next(error);
                     return;
-                    // return res.json({
-                    //     error: 'Invalid name or password!'
-                    // });
                 }
 
                 if (!user) {
@@ -54,34 +43,18 @@ module.exports = function(data) {
                         return;
                     }
 
-                    // res.status(200)
-                    //     .send({ redirectRoute: '/profile' });
+                    let token = jwt.encode(user, tokenKey);
                     res.status(200)
                         .json({
                             success: true,
-                            message: 'Login successfull!'
+                            token
                         });
                 });
             });
 
             return Promise.resolve()
                 .then(() => {
-                    if (!req.isAuthenticated()) {
-                        auth(req, res, next);
-                    } else {
-                        res.redirect('/home');
-                    }
-                });
-        },
-        logout(req, res) {
-            return Promise.resolve()
-                .then(() => {
-                    if (!req.isAuthenticated()) {
-                        res.redirect('/home');
-                    } else {
-                        req.logout();
-                        res.redirect('/home');
-                    }
+                    auth(req, res, next);
                 });
         }
     };
