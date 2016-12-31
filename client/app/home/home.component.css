@@ -1,0 +1,90 @@
+.btn {
+  border: 0;
+  border-radius: 0;
+}
+
+.btn.btn-primary:hover {
+  background-color: #017fb5;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+}
+
+a:focus, 
+a:hover {
+  text-decoration: none;
+  outline: none
+}
+
+.heading {
+  padding-bottom:90px;
+}
+
+#home{
+    overflow: hidden;
+    position: relative;
+}
+
+#home .caption {
+    position: absolute;
+    top: 50%;
+    margin-top: -104px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 15;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+}
+
+#home .caption h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.caption .btn-start {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 40px;
+    border: 1px solid #6e6d6c;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.caption .btn-start:hover {
+    color: #fff
+}
+
+.home {
+    height: 100%;
+}
+
+.inner {
+    height: 100%;
+}
+
+.home .inner .item {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-image: url('../../../public/images/home-bg.jpg')
+}
+
+
+
+
+
+
