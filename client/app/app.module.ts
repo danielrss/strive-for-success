@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { User } from '../core/models/user'
 /* Custom Modules */
 import { UserModule } from './user';
 import { InterviewModule } from './interviews';
@@ -16,6 +15,9 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation';
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
+
+/* Models */
+import { User } from '../core/models/user'
 
 /* Services */
 import * as Services from '../core/services';

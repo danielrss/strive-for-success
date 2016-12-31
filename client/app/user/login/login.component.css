@@ -1,10 +1,10 @@
 .login {
-    background-image: url('../../../../public/images/log.png');
+    background-image: url('../../../../public/images/reg.png');
 }
 
 h2,
 h3 {
-    color: steelblue;
+    color: #fff;
     padding-top: 20px;
 }
 
