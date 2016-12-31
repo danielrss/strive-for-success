@@ -38,14 +38,25 @@ export class LoginComponent implements OnInit{
         this.submitted = true;
         if (this.form.valid) {
             this.userService.loginUser(this.email.value, this.password.value)
-                .subscribe(response => {
-                  console.log(response);
-                }, err => {
-                  const message = err.json().message;
-                  console.log(err);
-              }, () => {
-                // setTimeout(() => this.router.navigateByUrl('/my-profile'), 500);
-              });
+                .subscribe((response: any) => {
+                    console.log(response);
+                    if(!response.auth_token){
+                        throw new Error('Invalid login');
+                    }
+
+                    this.userService.setLoggedUser(response);
+
+                    const successTitle = "Welcome!";
+                    const successMessage = "You have logged in successfully!";
+                    console.log(successTitle + successMessage);
+                    }, (err: any) => {
+                        console.log(err);
+                        const errorTitle = "Invalid credentials!";
+                        const errorMessage = "Wrong username or password! Please try again.";
+                        console.log(errorTitle + errorMessage);
+                    }, () => {
+                        // setTimeout(() => this.router.navigateByUrl('/my-profile'), 500);
+                });
         }
     }
 }

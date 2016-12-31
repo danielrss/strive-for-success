@@ -21,6 +21,7 @@ import {
 
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
+import { AuthGuard } from './guards/auth.guard';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -34,7 +35,9 @@ export const APP_ROUTES: Routes = [
             // { path: 'technology', component: InterviewsTechnologyComponent }
         ]
     },
-    { path: 'profiles',
+    {
+        path: 'profiles',
+        canActivate: [AuthGuard],
         component: ProfilesMainComponent,
         children: [
             { path: 'all', component: ProfilesAllComponent },

@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports = function(app, express, data) {
+module.exports = function(app, passport, express, data) {
     let userRouter = new express.Router(),
-        authController = require('../controllers/auth-controller')(data),
-        userController = require('../controllers/user-controller')(data);
+        authController = require('../controllers/auth-controller')(data);
 
     userRouter
     // .get('/login', userController.getLogin)
-    .post('/login', authController.loginLocal)
+        .post('/authenticate', authController.authenticate)
+        .post('/login', passport.authenticate('local'), authController.login)
     // .get('/auth/facebook', authController.loginFacebook())
     // .get('/auth/facebook/callback', authController.loginFacebookCallback())
     // .get('/auth/google', authController.loginGooglePlus())

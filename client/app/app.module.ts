@@ -25,6 +25,7 @@ import * as Services from '../core/services';
 
 /* Router */
 import { APP_ROUTES } from './app.router';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
     imports: [
@@ -51,6 +52,8 @@ import { APP_ROUTES } from './app.router';
       Services.UserService,
       Services.UsersFactoryService,
       Services.AlertService
+      Services.AuthService,
+      AuthGuard
     ],
     bootstrap: [AppComponent]
 })
