@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 import {
     RegisterComponent,
     LoginComponent,
-    LogoutComponent,
     MyProfileComponent
 } from './user';
 

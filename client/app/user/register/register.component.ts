@@ -68,15 +68,14 @@ export class RegisterComponent implements OnInit {
             this.userService.registerUser(this.user)
                 .subscribe(
                   response => {
-                    this.alertService.success('Registration successful!', true);
-                  },
-                  error => {
-                    this.alertService.error(error);
-                  },
-                  () => {
-                    this.router.navigateByUrl('/login', 1000);
-                  }
-                );
+                    const successMessage = 'Registration successful!';
+                    this.alertService.success(successMessage);
+                  }, error => {
+                    const errorMessage = "Such user already exists!";
+                    this.alertService.error(errorMessage);
+                  }, () => {
+                     setTimeout(() => this.router.navigateByUrl('/login'), 2500);
+                });
         }
     }
 }

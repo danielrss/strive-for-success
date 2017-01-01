@@ -28,8 +28,8 @@ export class NavigationComponent implements OnInit {
     }
 
     public logout() {
-        this.alertService.success('You have logged out successfully.', true)
+        this.alertService.success('You have logged out successfully.')
         this.userService.logoutUser();
-        this.router.navigateByUrl('/');
+        setTimeout(() => this.router.navigateByUrl('/'), 1500);
     }
 }

@@ -50,13 +50,13 @@ export class LoginComponent implements OnInit{
                     this.userService.setLoggedUser(response);
 
                     const successMessage = "Welcome! You have logged in successfully!";
-                    this.alertService.success(successMessage, true)
+                    this.alertService.success(successMessage)
                     }, (err: any) => {
                         console.log(err);
                         const errorMessage = "Wrong username or password! Please try again.";
                         this.alertService.error(errorMessage);
                     }, () => {
-                        setTimeout(() => this.router.navigateByUrl('/my-profile'), 500);
+                        setTimeout(() => this.router.navigateByUrl('/my-profile'), 2500);
                 });
         }
     }
