@@ -21,6 +21,7 @@ import {
 
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
+import { NotFoundComponent } from './not-found'
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
 
@@ -76,5 +77,6 @@ export const APP_ROUTES: Routes = [
             // }
         ]
     },
-    { path: 'contact', component: ContactComponent }
+    { path: 'contact', component: ContactComponent },
+    { path: '**', component: NotFoundComponent }
 ];

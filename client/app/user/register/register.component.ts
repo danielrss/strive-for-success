@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit {
             this.user = this.userFactory.createUser(
               values['firstName'],
               values['lastName'],
+              +values['age'],
               values['email'],
               values['passwords']['password']
             );
@@ -81,7 +82,7 @@ export class RegisterComponent implements OnInit {
                     const errorMessage = "A user with the same email already exists!";
                     this.alertService.error(errorMessage);
                   }, () => {
-                     setTimeout(() => this.router.navigateByUrl('/login'), 2500);
+                     setTimeout(() => this.router.navigateByUrl('/login'), 500);
                 });
         }
     }

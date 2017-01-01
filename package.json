@@ -7,6 +7,7 @@
     "dev": "concurrently \"npm run build:dev\" \"nodemon server/server.js\"",
     "test": "karma start",
     "server": "node server/server.js",
+    "server:dev": "nodemon server/server.js",
     "client": "webpack-dev-server --config config/webpack.dev.js --progress --inline --profile --watch --content-base client/app/ --port 3000",
     "build:dev": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile",
     "build:prod": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
