@@ -31,7 +31,7 @@ module.exports = function(data) {
             };
 
             res.status(200).json({
-                username: req.user.email,
+                email: req.user.email,
                 auth_token: jwt.sign(webTokenObject, webTokenSecret)
             });
         },
@@ -50,9 +50,9 @@ module.exports = function(data) {
                                 success: true,
                                 user: {
                                     token,
-                                    username: user.email,
-                                    firstname: user.firstname,
-                                    lastname: user.lastname,
+                                    email: user.email,
+                                    firstName: user.firstName,
+                                    lastName: user.lastName,
                                     _id: user._id
                                 }
                             });

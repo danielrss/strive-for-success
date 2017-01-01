@@ -40,7 +40,7 @@ export class UserService {
         localStorage.setItem('user', JSON.stringify(authResponse));
     }
 
-    deleteUser(user: User): Observable<any> {
-        return this.api.delete(`${this.usersPath}/${user._id}`);
+    get loggedInUser() {
+        return this.authService.getLoggedInUser();
     }
  }
