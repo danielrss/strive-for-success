@@ -53,10 +53,6 @@ module.exports = function(models) {
                         return reject(err);
                     }
 
-                    if (!user) {
-                        return reject(user);
-                    }
-
                     return resolve(user);
                 });
             });

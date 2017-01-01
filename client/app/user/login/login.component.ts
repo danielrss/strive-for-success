@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { UserService } from '../../../core/services/user.service';
+import { UserService, AlertService } from '../../../core/services';
 
 @Component({
     selector: 'app-login',
@@ -17,7 +17,11 @@ export class LoginComponent implements OnInit{
 
     public submitted:boolean = false;
 
-    constructor(fb: FormBuilder, private router: Router, private userService: UserService) {
+    constructor(
+            private fb: FormBuilder,
+            private router: Router,
+            private userService: UserService,
+            private alertService: AlertService) {
         this.form = fb.group({
           'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
           'passwords': fb.group({
@@ -39,21 +43,18 @@ export class LoginComponent implements OnInit{
         if (this.form.valid) {
             this.userService.loginUser(this.email.value, this.password.value)
                 .subscribe((response: any) => {
-                    console.log(response);
                     if(!response.auth_token){
                         throw new Error('Invalid login');
                     }
 
                     this.userService.setLoggedUser(response);
 
-                    const successTitle = "Welcome!";
-                    const successMessage = "You have logged in successfully!";
-                    console.log(successTitle + successMessage);
+                    const successMessage = "Welcome! You have logged in successfully!";
+                    this.alertService.success(successMessage, true)
                     }, (err: any) => {
                         console.log(err);
-                        const errorTitle = "Invalid credentials!";
                         const errorMessage = "Wrong username or password! Please try again.";
-                        console.log(errorTitle + errorMessage);
+                        this.alertService.error(errorMessage);
                     }, () => {
                         setTimeout(() => this.router.navigateByUrl('/my-profile'), 500);
                 });
