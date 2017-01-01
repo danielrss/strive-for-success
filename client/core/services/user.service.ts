@@ -28,11 +28,11 @@ export class UserService {
         return this.api.post(this.loginPath, { username: email, password })
     }
 
-    logoutUser(user: User) {
+    logoutUser() {
         localStorage.clear();
     }
 
-    isLoggedIn() {
+    isLoggedIn() : any {
         return this.authService.isLoggedIn();
     }
 
