@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { UserService, AuthService } from '../../core/services';
-import { User } from '../../core/models/user'
 
 @Component({
     selector: 'app-navigation',
@@ -24,7 +23,7 @@ export class NavigationComponent implements OnInit {
     }
 
     ngOnInit() {
-    this.isUserLoggedIn = this._authService.isLoggedIn();
+        this.isUserLoggedIn = this._authService.isLoggedIn();
     }
 
     ngDoCheck() {

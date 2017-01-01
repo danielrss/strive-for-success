@@ -10,7 +10,8 @@ import {
 import {
     InterviewsMainComponent,
     InterviewDetailsComponent,
-    InterviewsAllComponent
+    InterviewsAllComponent,
+    InterviewCreateComponent
 } from './interviews';
 
 import {
@@ -29,7 +30,8 @@ export const APP_ROUTES: Routes = [
         component: InterviewsMainComponent,
         children: [
             { path: 'all', component: InterviewsAllComponent },
-            { path: ':id', component: InterviewDetailsComponent },
+            { path: 'create', component: InterviewCreateComponent },
+            { path: ':id', component: InterviewDetailsComponent }           
             // { path: 'business', component: InterviewsBusinessComponent },
             // { path: 'art', component: InterviewaArtComponent },
             // { path: 'technology', component: InterviewsTechnologyComponent }

@@ -5,7 +5,7 @@
           <h1 class="animated fadeInLeftBig">Welcome to <span>Strive For Success!</span></h1>
           <p class="animated fadeInRightBig">Inspiration for entrepreneurs</p>
           <a data-scroll class="btn btn-start animated fadeInUpBig" routerLink="/interviews" routerLinkActive="active">Discover</a>
-          <a data-scroll class="btn btn-start btn-register animated fadeInUpBig" routerLink="/register" routerLinkActive="active">Login or Register</a>
+          <a data-scroll class="btn btn-start btn-register animated fadeInUpBig" *ngIf="!isUserLoggedIn" routerLink="/register" routerLinkActive="active">Login or Register</a>
         </div>
       </div>
     </div>

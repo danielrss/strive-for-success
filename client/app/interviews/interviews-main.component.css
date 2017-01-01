@@ -16,17 +16,17 @@
     color: #fff;
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .interviews-caption .btn-start {
     color: #fff;
     font-size: 14px;
     font-weight: 600;
-    padding: 14px 40px;
+    padding: 14px 30px;
     border: 1px solid #6e6d6c;
     border-radius: 4px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .interviews-caption .btn-start:hover {
@@ -47,3 +47,6 @@
     background-image: url('../../../public/images/interviews-main.jpg')
 }
 
+.create-interiew {
+    padding-top: 60px;
+}
