@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { UserService, AuthService } from '../../core/services';
+import { UserService, AuthService, AlertService } from '../../core/services';
+import { User } from '../../core/models/user'
 
 @Component({
     selector: 'app-navigation',
@@ -12,26 +13,23 @@ import { UserService, AuthService } from '../../core/services';
 export class NavigationComponent implements OnInit {
     public isUserLoggedIn: Observable<boolean> | boolean;
 
-    private _userService: UserService;
-    private _router: Router;
-    private _authService: AuthService;
-
-    constructor(userService: UserService, router: Router, authService: AuthService) {
-        this._userService = userService;
-        this._router = router;
-        this._authService = authService;
-    }
+    constructor(
+            private userService: UserService,
+            private router: Router,
+            private authService: AuthService,
+            private alertService: AlertService) { }
 
     ngOnInit() {
-        this.isUserLoggedIn = this._authService.isLoggedIn();
+        this.isUserLoggedIn = this.authService.isLoggedIn();
     }
 
     ngDoCheck() {
-        this.isUserLoggedIn = this._authService.isLoggedIn();
+        this.isUserLoggedIn = this.authService.isLoggedIn();
     }
 
     public logout() {
-        this._userService.logoutUser();
-        this._router.navigateByUrl('/');
+        this.alertService.success('You have logged out successfully.', true)
+        this.userService.logoutUser();
+        this.router.navigateByUrl('/');
     }
 }

@@ -23,6 +23,7 @@ import {
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
 import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/not-auth.guard';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -39,7 +40,6 @@ export const APP_ROUTES: Routes = [
     },
     {
         path: 'profiles',
-        canActivate: [AuthGuard],
         component: ProfilesMainComponent,
         children: [
             { path: 'all', component: ProfilesAllComponent },
@@ -58,10 +58,11 @@ export const APP_ROUTES: Routes = [
             // { path: 'successful-entrepreneurs', component: TopSuccessfulEntrepreneursComponent },
         ]
     },
-    { path: 'register', component: RegisterComponent },
-    { path: 'login', component: LoginComponent },
+    { path: 'register', canActivate: [NotAuthGuard], component: RegisterComponent },
+    { path: 'login', canActivate: [NotAuthGuard], component: LoginComponent },
     {
         path: 'my-profile',
+        canActivate: [AuthGuard],
         component: MyProfileComponent,
         children: [
             // { path: 'edit', component: EditProfileComponent },

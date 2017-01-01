@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { User } from '../../../core/models/user';
 import { UserService, UsersFactoryService, AlertService } from '../../../core/services';
+
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -21,7 +22,12 @@ export class RegisterComponent implements OnInit {
     public submitted: boolean = false;
     public user: User;
 
-    constructor(fb: FormBuilder, private router: Router, private userService: UserService, private userFactory: UsersFactoryService, private alertService: AlertService) {
+    constructor(
+            private fb: FormBuilder,
+            private router: Router,
+            private userService: UserService,
+            private userFactory: UsersFactoryService,
+            private alertService: AlertService) {
         this.form = fb.group({
           'firstName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
           'lastName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -62,14 +68,13 @@ export class RegisterComponent implements OnInit {
             this.userService.registerUser(this.user)
                 .subscribe(
                   response => {
-                    this.alertService.success('Registration successful', true);
+                    this.alertService.success('Registration successful!', true);
                   },
                   error => {
-                    console.log(error); 
                     this.alertService.error(error);
                   },
-                  ()=>{
-                    this.router.navigateByUrl('/login', 1000);
+                  () => {
+                    this.router.navigateByUrl('/login', 500);
                   }
                 );
         }
