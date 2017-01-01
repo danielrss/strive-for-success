@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
                     this.alertService.error(error);
                   },
                   () => {
-                    this.router.navigateByUrl('/login', 1000);
+                    this.router.navigateByUrl('/login', 500);
                   }
                 );
         }

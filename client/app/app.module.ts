@@ -26,34 +26,36 @@ import * as Services from '../core/services';
 /* Router */
 import { APP_ROUTES } from './app.router';
 import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/not-auth.guard';
 
 @NgModule({
     imports: [
-      BrowserModule,
-      FormsModule,
-      ReactiveFormsModule,
-      HttpModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
 
-      RouterModule.forRoot(APP_ROUTES, { useHash: true }),
+        RouterModule.forRoot(APP_ROUTES, { useHash: true }),
 
-      UserModule,
-      InterviewModule,
-      ProfileModule
+        UserModule,
+        InterviewModule,
+        ProfileModule
     ],
     declarations: [
-      AppComponent,
-      NavigationComponent,
-      HomeComponent,
-      ContactComponent,
-      AlertComponent
+        AppComponent,
+        NavigationComponent,
+        HomeComponent,
+        ContactComponent,
+        AlertComponent
     ],
     providers: [
-      Services.ApiService,
-      Services.UserService,
-      Services.UsersFactoryService,
-      Services.AlertService,
-      Services.AuthService,
-      AuthGuard
+        Services.ApiService,
+        Services.UserService,
+        Services.UsersFactoryService,
+        Services.AlertService,
+        Services.AuthService,
+        AuthGuard,
+        NotAuthGuard
     ],
     bootstrap: [AppComponent]
 })
