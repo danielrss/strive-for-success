@@ -3,7 +3,9 @@ import { Routes } from '@angular/router';
 import {
     RegisterComponent,
     LoginComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    EditUserInfoComponent,
+    EditUserInterviewComponent
 } from './user';
 
 import {
@@ -61,22 +63,9 @@ export const APP_ROUTES: Routes = [
     },
     { path: 'register', canActivate: [NotAuthGuard], component: RegisterComponent },
     { path: 'login', canActivate: [NotAuthGuard], component: LoginComponent },
-    {
-        path: 'my-profile',
-        canActivate: [AuthGuard],
-        component: MyProfileComponent,
-        children: [
-            // { path: 'edit', component: EditProfileComponent },
-            // {
-            //     path: 'projects', component: ProjectsComponent,
-            //     children: [
-            //         { path: 'create', component: CreateProjectComponent },
-            //         { path: 'edit/:id', component: EditProjectComponent },
-            //         { path: 'preview/:id', component: ProjectPreviewComponent }
-            //     ]
-            // }
-        ]
-    },
+        { path: 'my-profile/edit-info', canActivate: [AuthGuard], component: EditUserInfoComponent },
+        { path: 'my-profile/edit-interview', canActivate: [AuthGuard], component: EditUserInterviewComponent },
+    { path: 'my-profile', canActivate: [AuthGuard], component: MyProfileComponent },
     { path: 'contact', component: ContactComponent },
     { path: '**', component: NotFoundComponent }
 ];

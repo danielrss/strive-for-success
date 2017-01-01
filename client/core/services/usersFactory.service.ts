@@ -10,7 +10,6 @@ export class UsersFactoryService {
         user.age = age;
         user.email = email;
         user.password = password;
-        user.dateCreated = new Date();
 
         return user;
     }
