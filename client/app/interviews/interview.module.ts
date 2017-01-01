@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { InterviewsMainComponent } from './interviews-main.component';
 import { InterviewsAllComponent } from './interviews-all.component';
 import { InterviewDetailsComponent } from './interview-details.component'
+import { InterviewCreateComponent } from './interview-create.component';
 
 @NgModule({
     declarations: [
         InterviewsMainComponent,
         InterviewsAllComponent,
-        InterviewDetailsComponent
+        InterviewDetailsComponent,
+        InterviewCreateComponent
     ],
     imports: [
         CommonModule,
