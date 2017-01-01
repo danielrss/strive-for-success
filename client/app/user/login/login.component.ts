@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit{
                         const errorMessage = "Wrong username or password! Please try again.";
                         this.alertService.error(errorMessage);
                     }, () => {
-                        setTimeout(() => this.router.navigateByUrl('/my-profile'), 2500);
+                        setTimeout(() => this.router.navigateByUrl('/my-profile'), 500);
                 });
         }
     }

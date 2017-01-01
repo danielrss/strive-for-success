@@ -13,7 +13,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right" *ngIf="!isUserLoggedIn">
-                <li class="scroll"><a routerLink="" routerLinkActive="active">Home</a></li>
+                <li class="scroll"><a routerLink="/home" routerLinkActive="active">Home</a></li>
                 <li class="scroll"><a routerLink="/interviews" routerLinkActive="active">Interviews</a></li>
                 <li class="scroll"><a routerLink="/profiles" routerLinkActive="active">Users</a></li>
                 <li class="scroll"><a routerLink="/login" routerLinkActive="active">Login</a></li>
@@ -21,11 +21,11 @@
                 <li class="scroll"><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" *ngIf="isUserLoggedIn">
-                <li class="scroll"><a routerLink="" routerLinkActive="active">Home</a></li>
+                <li class="scroll"><a routerLink="/home" routerLinkActive="active">Home</a></li>
                 <li class="scroll"><a routerLink="/interviews" routerLinkActive="active">Interviews</a></li>
                 <li class="scroll"><a routerLink="/profiles" routerLinkActive="active">Users</a></li>
                 <li class="scroll"><a routerLink="/my-profile" routerLinkActive="active">My Profile</a></li>
-                <li class="scroll"><a routerLink="/logout" routerLinkActive="active" (click)="logout()">Logout</a></li>
+                <li class="scroll"><a routerLink="/home" routerLinkActive="active" (click)="logout()">Logout</a></li>
                 <li class="scroll"><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
             </ul>
         </div>
