@@ -62,20 +62,22 @@ export class EditUserInfoComponent {
                 null
             );
 
-            this.userService.updateUser(this.user._id, updatedUser)
+            this.userService.updateLoggedUser(updatedUser)
                 .subscribe(
-                response => {
-                    setTimeout(() => {
-                        this.user.firstName = response.user.firstName;
-                        this.user.lastName = response.user.lastName;
-                    }, 500);
+                    response => {
+                        setTimeout(() => {
+                            this.user.firstName = response.user.firstName;
+                            this.user.lastName = response.user.lastName;
+                        }, 500);
 
-                    const successMessage = 'Your profile has been updated.';
-                    this.alertService.success(successMessage);
-                  }, error => {
-                    const errorMessage = "A user with the same email already exists!";
-                    this.alertService.error(errorMessage);
-                  });
+                        const successMessage = 'Your profile has been updated.';
+                        this.alertService.success(successMessage);
+                    }, error => {
+                        const errorMessage = "A user with the same email already exists!";
+                        this.alertService.error(errorMessage);
+                    }, () => {
+                        this.form.markAsPristine();
+                    });
         }
     }
 }

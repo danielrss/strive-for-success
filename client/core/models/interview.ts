@@ -1,7 +1,7 @@
-export interface Interview {
+export class Interview {
     title: string;
     imageUrl: string;
-    questions: [{}];
+    questions: { title: string, answer: string}[];
     isShownInHome: Boolean;
     createdOn: Date;
 }

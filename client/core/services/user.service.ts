@@ -6,13 +6,13 @@ import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 
 import { User } from '../models/user';
+import { Interview } from '../models/interview';
 
 @Injectable()
 export class UserService {
     private usersPath: string = '/users';
     private registerPath: string = '/users/register';
     private loginPath: string = '/users/login';
-    private updateProfilePath: string = '/users/';
 
     constructor(private api: ApiService, private authService: AuthService) {}
 
@@ -24,7 +24,7 @@ export class UserService {
         return this.api.post(this.registerPath, user);
     }
 
-    loginUser(email: string, password: string) {
+    loginUser(email: string, password: string): Observable<any> {
         return this.api.post(this.loginPath, { username: email, password })
     }
 
@@ -32,7 +32,7 @@ export class UserService {
         localStorage.clear();
     }
 
-    isLoggedIn() : any {
+    isLoggedIn(): any {
         return this.authService.isLoggedIn();
     }
 
@@ -40,11 +40,19 @@ export class UserService {
         localStorage.setItem('user', JSON.stringify(authResponse));
     }
 
-    get loggedInUser() {
+    get loggedInUser(): User {
         return this.authService.getLoggedInUser();
     }
 
-    updateUser(userId: string, user: User): Observable<any> {
-        return this.api.post(this.updateProfilePath + userId, user);
+    updateLoggedUser(user: User): Observable<any> {
+        return this.api.post(`${this.usersPath}/${this.loggedInUser._id}`, user);
+    }
+
+    getInterview(): Observable<any> {
+        return this.api.get(`${this.usersPath}/${this.loggedInUser._id}/interview`);
+    }
+
+    updateInterview(interview: Interview): Observable<any> {
+        return this.api.post(`${this.usersPath}/${this.loggedInUser._id}/interview`, interview);
     }
  }

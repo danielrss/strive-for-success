@@ -1,1 +1,37 @@
-<h2>edit interview</h2>
+<section class="register">
+    <div id="register-content" class="parallax">
+        <div class="auth-main container">
+            <div class="auth-block register-component">
+                <div class="title col-sm-12">
+                    <h2>{{user.firstName}} {{user.lastName}}'s interview</h2>
+                    <span class="border"></span>
+                </div>
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal col-sm-6">
+                    <div class="interview-question" *ngFor="let question of questions">
+                        <div class="form-group row" [ngClass]="{'has-error': (!question.control.valid && question.control.touched), 'has-success': (question.control.valid)}">
+                            <label for="inputFirstName3" class="col-sm-20 control-label">{{question.title}}</label>
+
+                            <div class="col-sm-12">
+                                <input [formControl]="question.control" type="text" class="form-control">
+                                <span *ngIf="!question.control.valid && question.control.touched" class="help-block sub-little-text">Invalid answer!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 btn-element">
+                            <button class="btn-purple btn-auth" (click)="addQuestion()">Add question</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 btn-element">
+                            <button [disabled]="!form.valid || !form.dirty" type="submit" class="btn-purple btn-auth">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = function(app, passport, express, data) {
     let userRouter = new express.Router(),
         authController = require('../controllers/auth-controller')(data),
@@ -17,6 +16,8 @@ module.exports = function(app, passport, express, data) {
         // .get('/auth/twitter/callback', authController.loginTwitterCallback())
         // .get('/logout', authController.logout)
         .post('/register', authController.register)
+        .get('/:id/interview', userController.getInterview)
+        .post('/:id/interview', userController.updateInterview)
         .get('/:id', userController.getProfile)
         .post('/:id', userController.updateProfile);
     // .get('/profile/avatar', userController.getProfileAvatar)

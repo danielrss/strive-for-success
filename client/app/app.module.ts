@@ -54,6 +54,7 @@ import { NotAuthGuard } from './guards/not-auth.guard';
         Services.ApiService,
         Services.UserService,
         Services.UsersFactoryService,
+        Services.InterviewsFactoryService,
         Services.AlertService,
         Services.AuthService,
         AuthGuard,
