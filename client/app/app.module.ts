@@ -62,7 +62,6 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
         Services.AuthService,
         Services.InterviewsService,
         Services.InterviewsFactoryService,
-        Services.UserInterviewsFactoryService,
         AuthGuard,
         NotAuthGuard
     ],
