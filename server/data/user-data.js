@@ -57,6 +57,28 @@ module.exports = function(models) {
                 });
             });
         },
+        getUserByFirstname(firstName) {
+            return new Promise((resolve, reject) => {
+                User.findOne({ firstName: firstName }, (err, user) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(user);
+                });
+            });
+        },
+        getUserByLastname(lastName) {
+            return new Promise((resolve, reject) => {
+                User.findOne({ lastName: lastName }, (err, user) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(user);
+                });
+            });
+        },
         getAllUsers() {
             return new Promise((resolve, reject) => {
                 User.find((err, users) => {

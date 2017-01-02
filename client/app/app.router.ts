@@ -14,7 +14,6 @@ import {
 } from './interviews';
 
 import {
-    ProfilesMainComponent,
     ProfileDetailsComponent,
     ProfilesAllComponent
 } from './profiles';
@@ -38,10 +37,9 @@ export const APP_ROUTES: Routes = [
         ]
     },
     {
-        path: 'profiles',
-        component: ProfilesMainComponent,
+        path: 'users',
+        component: ProfilesAllComponent,
         children: [
-            { path: 'all', component: ProfilesAllComponent },
             {
                 path: ':id', component: ProfileDetailsComponent,
                 // children: [

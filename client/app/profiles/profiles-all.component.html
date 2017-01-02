@@ -1,1 +1,22 @@
-<p> Profiles All </p>
+<main id="profiles" class="parallax">
+    <div class="inner">
+        <div class="profiles active parallax">
+            <div class="profiles-caption">
+                <h2 class="title animated fadeInLeftBig">Discover <strong>Profiles</strong></h2>
+                <p>Loop through current users catalogue</p>
+            </div>
+        </div>
+    </div>
+    <div id="search" class="button-group">
+        <label for="filter">Search</label>
+        <input class="form-control" id="search-box" (change)="onSearch(searchBox.value)" #searchBox />
+
+        <div class="pr-table col-sm-6 grid-sizer" *ngFor="let user of users">
+            <div class="wrapper">
+                <h3>{{user.firstName}}</h3>
+                <div class="item overlay">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
