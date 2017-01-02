@@ -1,22 +1,23 @@
-<main id="profiles" class="parallax">
-    <div class="inner">
-        <div class="profiles active parallax">
-            <div class="profiles-caption">
-                <h2 class="title animated fadeInLeftBig">Discover <strong>Profiles</strong></h2>
-                <p>Loop through current users catalogue</p>
-            </div>
-        </div>
+<div id="profiles" class="item active parallax">
+    <div class="title profiles-caption">
+        <h2 class="animated fadeInLeftBig">Discover <strong>Profiles</strong></h2>
+        <p>Loop through current users catalogue</p>
     </div>
-    <div id="search" class="button-group">
+    <div class="search">
         <label for="filter">Search</label>
-        <input class="form-control" id="search-box" (change)="onSearch(searchBox.value)" #searchBox />
-
-        <div class="pr-table col-sm-6 grid-sizer" *ngFor="let user of users">
-            <div class="wrapper">
-                <h3>{{user.firstName}}</h3>
-                <div class="item overlay">
-                </div>
+        <input class="form-control" id="search-box" placeholder="First name" [(ngModel)]="searchBox.value" (change)="onSearch(searchBox.value)" #searchBox />
+    </div>
+    <div class="content" *ngFor="let user of (users | filter: searchBox.value)">
+        <div class="user-info overlay" id="{{_id}}">
+            <div class="user-cover" *ngIf="!user.avatarUrl">
+                <img src="{{user.avatarUrl}}">
+            </div>
+            <div class="user-cover" *ngIf="user.avatarUrl">
+                <img src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png">
+            </div>
+            <div class="options">
+                <h3><a routerLink="/users/:{{_id}}" routerLinkActive="active">{{user.firstName}} {{user.lastName}}</a></h3>
             </div>
         </div>
     </div>
-</main>
+</div>

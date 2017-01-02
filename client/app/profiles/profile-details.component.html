@@ -1,1 +1,19 @@
-<p> Profile Details </p>
+<div class="content container row">
+    <div class="col-sm-12 title">
+        <h1>{{firstName}} {{lastName}}'s profile</h1>
+    </div>
+    <div class="user-info" id="{{_id}}">
+        <div class="user-cover" id="profile-avatar" *ngIf="avatarUrl">
+            <img [src]="avatarUrl">
+        </div>
+        <div class="user-cover col-sm-6" *ngIf="!avatarUrl">
+            <img src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png">
+        </div>
+        <div class="options">
+            <label class="" for="form-email">Email</label>
+            <input type="text" name="email" value={{email}} class="form-email form-control" id="form-email">
+            <label class="" for="form-first-name">First name</label>
+            <input type="text" name="firstName" value={{firstName}} class="form-first-name form-control" id="form-first-name">
+        </div>
+    </div>
+</div>

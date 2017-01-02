@@ -51,8 +51,6 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
         HomeComponent,
         ContactComponent,
         AlertComponent,
-
-        FilterPipe
         NotFoundComponent
     ],
     providers: [
@@ -62,8 +60,7 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
         Services.AlertService,
         Services.AuthService,
         AuthGuard,
-        NotAuthGuard, 
-        FilterPipe
+        NotAuthGuard
     ],
     bootstrap: [AppComponent]
 })

@@ -40,12 +40,11 @@ export const APP_ROUTES: Routes = [
             // { path: 'technology', component: InterviewsTechnologyComponent }
         ]
     },
+    { path: 'users/:id', component: ProfileDetailsComponent },
     {
-        path: 'users',
-        component: ProfilesAllComponent,
-        children: [
-            {
-                path: ':id', component: ProfileDetailsComponent,
+        path: 'users', component: ProfilesAllComponent
+        // children: [
+        //     {
                 // children: [
                 //     {
                 //         path: 'projects', component: ProjectsComponent,
@@ -54,10 +53,10 @@ export const APP_ROUTES: Routes = [
                 //         ]
                 //     }
                 // ]
-            },
+            // },
             // { path: 'young-entrepreneurs', component: TopYoungEntrepreneuersComponent },
             // { path: 'successful-entrepreneurs', component: TopSuccessfulEntrepreneursComponent },
-        ]
+        // ]
     },
     { path: 'register', canActivate: [NotAuthGuard], component: RegisterComponent },
     { path: 'login', canActivate: [NotAuthGuard], component: LoginComponent },

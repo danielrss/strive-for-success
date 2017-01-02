@@ -6,14 +6,33 @@ const helpers = require('../helpers'),
 module.exports = function(data) {
     return {
         getAllUsers(req, res) {
-            console.log(req.body);
-            return data.getAllUsers()
+            return Promise.resolve()
+                .then(() => {
+                    return data.getAllUsers();
+                })
                 .then((users => {
                     if (!users) {
                         throw new Error('No users found!');
                     }
                     res.status(200)
                         .json(users);
+                }))
+                .catch(err => {
+                    res.status(400)
+                        .json({ validationErrors: helpers.errorHelper(err) });
+                });
+        },
+        getUserById(req, res) {
+            return Promise.resolve()
+                .then(() => {
+                    return data.getUserById(req.params.id);
+                })
+                .then((user => {
+                    if (!user) {
+                        throw new Error('No such user!');
+                    }
+                    res.status(200)
+                        .json(user);
                 }))
                 .catch(err => {
                     res.status(400)
