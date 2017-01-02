@@ -55,6 +55,7 @@ module.exports = function(data) {
                                     firstName: user.firstName,
                                     lastName: user.lastName,
                                     age: user.age,
+                                    avatarUrl: user.avatarUrl,
                                     interview: user.interview,
                                     projects: user.projects
                                 }
