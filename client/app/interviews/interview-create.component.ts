@@ -16,7 +16,7 @@ export class InterviewCreateComponent implements OnInit {
     public title: AbstractControl;
     public imageUrl: AbstractControl;
     public email: string;
-    public user: any;
+    public user: User;
     public category: AbstractControl;
     public content: AbstractControl;
 
@@ -36,16 +36,14 @@ export class InterviewCreateComponent implements OnInit {
           'category': ['', Validators.compose([Validators.required])],
           'content': ['', Validators.compose([Validators.required, Validators.minLength(50)])]
         });
-
-        
     }
 
     public ngOnInit() {
        this.title = this.form.controls['title'];
         this.imageUrl = this.form.controls['imageUrl'];
-        this.user = { email: JSON.parse(localStorage.getItem('user')).email };
-        // this.user = this.userService.loggedInUser;
-        // console.log(this.user);
+        // this.user = { email: JSON.parse(localStorage.getItem('user')).email };
+        this.user = this.userService.loggedInUser;
+        console.log(this.user);
         // console.log(this.user.firstName);
         this.category = this.form.controls['category'];
         this.content = this.form.controls['content'];

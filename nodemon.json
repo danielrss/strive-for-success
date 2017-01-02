@@ -11,5 +11,5 @@
         "client/",
         "server/"
     ],
-    "ext": "ts js json html"
+    "ext": "ts js json html css"
 }

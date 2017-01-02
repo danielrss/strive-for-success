@@ -1,30 +1,95 @@
 #profiles {
     background-image: url('../../../public/images/profiles-all.png');
+    background-repeat: repeat !important;
+    background-size: cover !important;
     opacity: 1;
     -webkit-transition-property: opacity;
     transition-property: opacity;
-    background-repeat: repeat;
-    background-size: cover;
-    height: 100%;
+    min-height: 130%;
+    overflow: auto;
 }
 
 .profiles-caption {
     position: absolute;
-    top: 40%;
-    margin-top: -104px;
+    margin-top: 20px;
     left: 0;
     right: 0;
     text-align: center;
-    text-transform: uppercase;
-    z-index: 15;
     font-size: 18px;
     font-weight: 300;
     color: #fff;
 }
 
-h2 {
+.search {
+    margin: 0 auto;
+    margin-top: 220px;
+    position: absolute;
+    align-content: center;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    width: 450px;
+}
+
+.profiles-caption h2 {
     color: #fff;
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 20px;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+.profiles .title {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.profiles-caption p {
+    float: left;
+    position: relative;
+    width: 100%;
+    color: darkgrey;
+    font-weight: bold;
+    text-align: center;
+    font-family: montserrat-regular;
+    font-size: 20px;
+}
+
+img {
+    height: 200px;
+    width: 180px;
+}
+
+.content {
+    margin: 0 auto;
+    align-content: center;
+    margin-top: 330px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.overlay {
+    display: block;
+    float: left;
+    padding: 15px;
+    margin: 30px 30px;
+    text-align: center;
+    background-color: #fff7f8;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay h3 a:hover {
+    cursor: pointer;
+    zoom: 1;
+    filter: alpha(opacity=50);
 }

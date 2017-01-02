@@ -124,4 +124,11 @@ export class EditUserInterviewComponent {
         this.questions.push({ title: newQuestion, control: this.form.controls[newQuestion] });
         this.optionalQuestionsAdded += 1;
     }
+
+    public removeQuestion() {
+        if (this.questions.length > this.defaultQuestionTitles.length) {
+            let lastQuestionAdded = this.questions.pop();
+            this.form.removeControl(lastQuestionAdded.title);
+        }
+    }
 }

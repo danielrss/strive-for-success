@@ -37,7 +37,7 @@ let UserSchema = new Schema({
     },
     avatarUrl: {
         type: String,
-        default: '/static/uploads/users/avatar.jpg'
+        default: '../../public/images/profile.png'
     },
     salt: String,
     passwordHash: {

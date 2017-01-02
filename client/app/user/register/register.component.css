@@ -1,8 +1,11 @@
+.register {
+    height: 100%;
+}
+
 #register-content {
     background-image: url('../../../../public/images/reg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
 }
 
 .register h2,
@@ -64,7 +67,7 @@ button {
 
 .btn-element {
     text-align: center;
-} 
+}
 
 .btn-auth {
     width: 150px;
