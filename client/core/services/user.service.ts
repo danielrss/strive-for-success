@@ -16,7 +16,7 @@ export class UserService {
 
     constructor(private api: ApiService, private authService: AuthService) {}
 
-    getUsers(): Observable<User[]> {
+    getUsers(): Observable<any> {
         return this.api.get(this.usersPath);
     }
 

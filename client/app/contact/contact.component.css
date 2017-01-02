@@ -63,16 +63,16 @@ ul.address {
   color: #fff;
 }
 
-.parallax input[type="text"],
-.parallax input[type="text"]:hover,
-.parallax input[type="email"],
-.parallax input[type="email"]:hover,
-.parallax input[type="url"],
-.parallax input[type="url"]:hover,
-.parallax input[type="password"],
-.parallax input[type="password"]:hover,
-.parallax textarea,
-.parallax textarea:hover {
+#contact .parallax input[type="text"],
+#contact .parallax input[type="text"]:hover,
+#contact .parallax input[type="email"],
+#contact .parallax input[type="email"]:hover,
+#contact .parallax input[type="url"],
+#contact .parallax input[type="url"]:hover,
+#contact .parallax input[type="password"],
+#contact .parallax input[type="password"]:hover,
+#contact .parallax textarea,
+#contact .parallax textarea:hover {
   font-weight: 300;
   color: #fff;
 }

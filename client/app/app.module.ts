@@ -29,6 +29,9 @@ import { APP_ROUTES } from './app.router';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
 
+/* Pipes */
+import { FilterPipe } from '../core/pipes/filter.pipe';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -48,6 +51,8 @@ import { NotAuthGuard } from './guards/not-auth.guard';
         HomeComponent,
         ContactComponent,
         AlertComponent,
+
+        FilterPipe,
         NotFoundComponent
     ],
     providers: [
@@ -57,8 +62,11 @@ import { NotAuthGuard } from './guards/not-auth.guard';
         Services.InterviewsFactoryService,
         Services.AlertService,
         Services.AuthService,
+        Services.InterviewsService,
+        Services.InterviewsFactoryService,
         AuthGuard,
-        NotAuthGuard
+        NotAuthGuard, 
+        FilterPipe
     ],
     bootstrap: [AppComponent]
 })

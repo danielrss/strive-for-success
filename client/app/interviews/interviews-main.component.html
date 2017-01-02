@@ -9,7 +9,7 @@
                 <a data-scroll class="btn btn-start animated fadeInUpBig" routerLink="/interviews/technology" routerLinkActive="active">Technology</a>
                 <div class="create-interiew">
                     <p class="animated fadeInRightBig">or create your own and become one of our editors</p>
-                    <a data-scroll class="btn btn-start animated fadeInUpBig" [routerLink]="isUserLoggedIn ? ['create'] : ['/login']" routerLinkActive="active">Create Interview</a>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" [routerLink]="isUserLoggedIn ? ['/interviews/create'] : ['/login']" routerLinkActive="active">Create Interview</a>
                 </div>
             </div>
         </div>
