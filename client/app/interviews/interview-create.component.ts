@@ -18,7 +18,7 @@ export class InterviewCreateComponent implements OnInit {
     public email: string;
     public user: any;
     public category: AbstractControl;
-    // public questions: FormGroup;
+    public content: AbstractControl;
 
     public submitted: boolean = false;
     public interview: Interview;
@@ -34,28 +34,21 @@ export class InterviewCreateComponent implements OnInit {
           'title': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
           'imageUrl': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
           'category': ['', Validators.compose([Validators.required])],
-        //   'questions': fb.group({
-        //     'question1': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-        //     'question2': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-        //   })
+          'content': ['', Validators.compose([Validators.required, Validators.minLength(50)])]
         });
 
-        this.title = this.form.controls['title'];
-        this.imageUrl = this.form.controls['imageUrl'];
-        this.user = { email: JSON.parse(localStorage.getItem('user')).email };
-        this.category = this.form.controls['category'];
-
-        // this.questions = <FormGroup> this.form.controls['questions'];
-        // this.question1 = this.questipns.controls['question1'];
-        // this.question2 = this.questipns.controls['question2'];
+        
     }
 
     public ngOnInit() {
-
-    }
-
-    public ngAfterViewInit(): void {
-
+       this.title = this.form.controls['title'];
+        this.imageUrl = this.form.controls['imageUrl'];
+        this.user = { email: JSON.parse(localStorage.getItem('user')).email };
+        // this.user = this.userService.loggedInUser;
+        // console.log(this.user);
+        // console.log(this.user.firstName);
+        this.category = this.form.controls['category'];
+        this.content = this.form.controls['content'];
     }
 
     public onSubmit(values: Object): void {
@@ -66,7 +59,8 @@ export class InterviewCreateComponent implements OnInit {
               values['title'],
               values['imageUrl'],
               this.user,
-              values['category']
+              values['category'],
+              values['content']
             );
 
             this.interviewsService.createInterview(this.interview)
