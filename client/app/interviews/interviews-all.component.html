@@ -1,17 +1,38 @@
-<div id="home" class="home">
-    <div class="inner">
-        <div class="interviews interviews-all active parallax">
-            <div class="interviews-caption">
-                <h3 class="animated fadeInLeftBig">Loop through our interviews catalog</h3>
-                <!--<p class="animated fadeInRightBig">Discover and get inspired...</p>-->
-                <div class="pr-table col-sm-6 grid-sizer" *ngFor="let interview of interviews">
-                <div class="wrapper">
-                    <h3>{{interview.title}}</h3>
-                    <div class="item overlay">
-                    </div>
-                </div>
+<div id="profiles" class="item active parallax">
+    <div class="title profiles-caption">
+        <h2 class="animated fadeInLeftBig">Discover <strong>Interviews</strong></h2>
+        <p class="animated fadeInRightBig">Loop through current interviews catalogue</p>
+    </div>
+    <div class="content-all" >
+        <div class="user-info overlay" *ngFor="let interview of interviews" id="{{interview._id}}">
+            <div class="user-cover">
+                <img src="{{interview.imageUrl}}">
             </div>
+            <div class="options">
+                <h3><a routerLink="/interviews/:{{interview._id}}" routerLinkActive="active">{{interview.title}}</a></h3>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<!--<div id="home" class="home">
+    <div class="inner">
+        <div class="interviews interviews-all active parallax">
+            <div class="interviews-all-caption">
+                <h2 class="animated fadeInLeftBig">Loop through our interviews catalog</h2>
+                <div class="interviews-content" *ngFor="let interview of interviews">
+                    <div class="user-info overlay" id="{{interview_id}}">
+                        <div class="user-cover">
+                            <img src="{{interview.imageUrl}}">
+                        </div>
+                        <div class="options">
+                            <h3><a routerLink="/interviews/:{{interview._id}}" routerLinkActive="active">{{interview.title}}</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

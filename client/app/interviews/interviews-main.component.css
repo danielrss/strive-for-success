@@ -38,13 +38,14 @@
 }
 
 #home .inner .interviews {
+    background-image: url('../../../public/images/interviews-main.jpg');
+    background-repeat: repeat !important;
+    background-size: cover !important;
     opacity: 1;
     -webkit-transition-property: opacity;
     transition-property: opacity;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    background-image: url('../../../public/images/interviews-main.jpg')
+    min-height: 130%;
+    overflow: auto;
 }
 
 .create-interiew {

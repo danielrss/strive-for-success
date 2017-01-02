@@ -33,7 +33,7 @@
                     <div class="form-group row" [ngClass]="{'has-error': (!content.valid && content.touched), 'has-success': (content.valid && content.touched)}">
                         <div class="col-sm-12">
                             <textarea [formControl]="content" type="text" class="form-control" id="inputFirstName3" placeholder="Write your questions and answers here:"></textarea>
-                            <span *ngIf="!content.valid && content.touched" class="help-block sub-little-text">Invalid answer!</span>
+                            <span *ngIf="!content.valid && content.touched" class="help-block sub-little-text">Invalid interview!</span>
                         </div>
                     </div>
                     <div class="form-group row">

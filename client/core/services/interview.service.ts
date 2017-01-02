@@ -14,7 +14,7 @@ export class InterviewsService {
 
     constructor(private api: ApiService, private authService: AuthService) {}
 
-    getUsers(): Observable<Interview[]> {
+    getInterviews(): Observable<Interview[]> {
         return this.api.get(this.interviewsPath);
     }
 
