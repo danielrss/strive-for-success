@@ -30,11 +30,12 @@ export const APP_ROUTES: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent},
     { path: 'interviews/create', component: InterviewCreateComponent },
+    { path: 'interviews/all', component: InterviewsAllComponent },
     { path: 'interviews',
         component: InterviewsMainComponent,
         children: [
-            { path: 'all', component: InterviewsAllComponent },
-            { path: ':id', component: InterviewDetailsComponent }
+            // { path: 'all', component: InterviewsAllComponent },
+            // { path: ':id', component: InterviewDetailsComponent }
             // { path: 'business', component: InterviewsBusinessComponent },
             // { path: 'art', component: InterviewaArtComponent },
             // { path: 'technology', component: InterviewsTechnologyComponent }
