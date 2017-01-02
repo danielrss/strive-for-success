@@ -20,8 +20,6 @@ module.exports = function(app, passport, express, data) {
         .get('/:id', userController.getProfile)
         // .get('/profile', userController.getProfile)
         // .post('/profile', userController.updateProfile)
-        .get('/:id', userController.getUserById)
-        .post('/:id', userController.updateProfile);
         .get('/:id/interview', userController.getInterview)
         .post('/:id/interview', userController.updateInterview)
         .get('/:id', userController.getProfile)

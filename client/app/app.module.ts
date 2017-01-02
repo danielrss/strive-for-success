@@ -65,7 +65,6 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
         Services.UserInterviewsFactoryService,
         AuthGuard,
         NotAuthGuard
-        NotAuthGuard,
     ],
     bootstrap: [AppComponent]
 })
