@@ -5,7 +5,7 @@ import { Observable} from 'rxjs/Observable';
 
 import { User } from '../../../core/models/user';
 import { Interview } from '../../../core/models/interview';
-import { UserService, InterviewsFactoryService, AlertService } from '../../../core/services';
+import { UserService, UserInterviewsFactoryService, AlertService } from '../../../core/services';
 
 @Component({
     templateUrl: './edit-user-interview.component.html',
@@ -43,7 +43,7 @@ export class EditUserInterviewComponent {
             private fb: FormBuilder,
             private router: Router,
             private userService: UserService,
-            private interviewFactory: InterviewsFactoryService,
+            private interviewFactory: UserInterviewsFactoryService,
             private alertService: AlertService) {
     }
 
@@ -91,6 +91,7 @@ export class EditUserInterviewComponent {
                 interviewQuestions.push({ title: q.title, answer: q.control.value });
             });
             let updatedInterview = this.interviewFactory.createInterview(
+                this.user,
                 this.interviewTitle,
                 interviewQuestions
             );

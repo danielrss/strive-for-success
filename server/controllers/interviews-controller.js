@@ -8,7 +8,6 @@ module.exports = function(data) {
             return data.createInterview(interview)
                 .then(() => {
                     res.status(200).json({ message: 'success' });
-                   
                 })
                 .catch((err) => {
                     res.status(400)

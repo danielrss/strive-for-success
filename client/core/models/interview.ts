@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export class Interview {
 
     _id: string;
