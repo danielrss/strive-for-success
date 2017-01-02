@@ -64,10 +64,14 @@ button {
 
 .btn-element {
     text-align: center;
-} 
+}
 
 .btn-auth {
     width: 150px;
+}
+
+.btn-question-option {
+    display: inline-block
 }
 
 button:hover {

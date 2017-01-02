@@ -13,20 +13,21 @@
                             <label for="inputFirstName3" class="col-sm-20 control-label">{{question.title}}</label>
 
                             <div class="col-sm-12">
-                                <input [formControl]="question.control" type="text" class="form-control">
+                                <textarea [formControl]="question.control" type="text" class="form-control"></textarea>
                                 <span *ngIf="!question.control.valid && question.control.touched" class="help-block sub-little-text">Invalid answer!</span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12 btn-element">
-                            <button class="btn-purple btn-auth" (click)="addQuestion()">Add question</button>
+                            <button class="btn-purple btn-auth btn-question-opt" (click)="addQuestion()">Add question</button>
+                            <button class="btn-purple btn-danger btn-question-opt" (click)="removeQuestion()">Remove question</button>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-12 btn-element">
-                            <button [disabled]="!form.valid || !form.dirty" type="submit" class="btn-purple btn-auth">Save</button>
+                            <button [disabled]="!form.valid || !form.touched" type="submit" class="btn-purple btn-auth">Save</button>
                         </div>
                     </div>
                 </form>
