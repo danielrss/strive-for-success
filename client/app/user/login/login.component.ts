@@ -10,10 +10,10 @@ import { UserService, AlertService } from '../../../core/services';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+    private readonly EMAIL_PATTERN: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     public form: FormGroup;
     public email: AbstractControl;
     public password: AbstractControl;
-    public passwords: FormGroup;
 
     public submitted:boolean = false;
 
@@ -23,15 +23,12 @@ export class LoginComponent implements OnInit{
             private userService: UserService,
             private alertService: AlertService) {
         this.form = fb.group({
-          'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-          'passwords': fb.group({
+            'email': ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.pattern(this.EMAIL_PATTERN)])],
             'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-          })
         });
 
-        this.email = this.form.controls['name'];
-        this.passwords = <FormGroup> this.form.controls['passwords'];
-        this.password = this.passwords.controls['password'];
+        this.email = this.form.controls['email'];
+        this.password = this.form.controls['password'];
     }
 
     ngOnInit(): void {}
@@ -56,7 +53,7 @@ export class LoginComponent implements OnInit{
                         const errorMessage = "Wrong username or password! Please try again.";
                         this.alertService.error(errorMessage);
                     }, () => {
-                        setTimeout(() => this.router.navigateByUrl('/my-profile'), 2500);
+                        setTimeout(() => this.router.navigateByUrl('/my-profile'), 500);
                 });
         }
     }

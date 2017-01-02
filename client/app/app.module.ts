@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation';
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
 import { AlertComponent } from './directives';
+import { NotFoundComponent } from './not-found';
 
 /* Models */
 import { User } from '../core/models/user'
@@ -27,6 +28,9 @@ import * as Services from '../core/services';
 import { APP_ROUTES } from './app.router';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
+
+/* Pipes */
+import { FilterPipe } from '../core/pipes/filter.pipe';
 
 @NgModule({
     imports: [
@@ -46,7 +50,10 @@ import { NotAuthGuard } from './guards/not-auth.guard';
         NavigationComponent,
         HomeComponent,
         ContactComponent,
-        AlertComponent
+        AlertComponent,
+
+        FilterPipe,
+        NotFoundComponent
     ],
     providers: [
         Services.ApiService,
@@ -57,7 +64,8 @@ import { NotAuthGuard } from './guards/not-auth.guard';
         Services.InterviewsService,
         Services.InterviewsFactoryService,
         AuthGuard,
-        NotAuthGuard
+        NotAuthGuard, 
+        FilterPipe
     ],
     bootstrap: [AppComponent]
 })

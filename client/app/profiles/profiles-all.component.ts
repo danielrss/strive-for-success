@@ -1,7 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Http, Response} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
+import { AuthService, UserService } from '../../core/services';
+
+import { User } from '../../core/models/user';
+
+import { FilterPipe } from '../../core/pipes/filter.pipe';
 @Component({
     selector: 'app-profiles-all',
-    templateUrl: './profiles-all.component.html'
+    templateUrl: './profiles-all.component.html',
+    styleUrls: ['./profiles-all.component.css']
 })
-export class ProfilesAllComponent {}
+export class ProfilesAllComponent implements OnInit{
+    public isUserLoggedIn: Observable<boolean> | boolean;
+    public users: User[];
+
+    constructor(private http: Http, private authService: AuthService, private userService: UserService, private filterPipe: FilterPipe) {
+        this.users=[];
+    }
+
+    ngOnInit() {
+        this.userService.getUsers()
+            .subscribe(users=> this.users=users);
+    }
+
+    onSearch(option: string){
+        this.filterPipe.transform(this.users, option)
+    }
+}

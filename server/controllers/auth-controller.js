@@ -50,10 +50,11 @@ module.exports = function(data) {
                                 success: true,
                                 user: {
                                     token,
+                                    _id: user._id,
                                     email: user.email,
                                     firstName: user.firstName,
                                     lastName: user.lastName,
-                                    _id: user._id
+                                    age: user.age
                                 }
                             });
                         }

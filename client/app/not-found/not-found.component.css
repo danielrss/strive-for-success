@@ -1,0 +1,49 @@
+#home{
+    overflow: hidden;
+    position: relative;
+}
+
+#home .caption {
+    position: absolute;
+    top: 50%;
+    margin-top: -104px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 15;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+}
+
+#home .caption h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.home {
+    height: 100%;
+}
+
+.inner {
+    height: 100%;
+}
+
+.home .inner .item {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-image: url('../../../public/images/home-bg.jpg')
+}
+
+
+
+
+
+

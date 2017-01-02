@@ -2,12 +2,12 @@
     <div class="inner">
         <div class="interviews active parallax">
             <div class="interviews-caption">
-                <h2 class="animated fadeInLeftBig">Here are all our <span><a [routerLink]="['all']" routerLinkActive="active">interviews</a></span></h2>
-                <p class="animated fadeInRightBig">Discover and get inspired..</p>
-                <a data-scroll class="btn btn-start animated fadeInUpBig" [routerLink]="['business']" routerLinkActive="active">Business</a>
-                <a data-scroll class="btn btn-start animated fadeInUpBig" [routerLink]="['art']" routerLinkActive="active">Art</a>
-                <a data-scroll class="btn btn-start animated fadeInUpBig" [routerLink]="['technology']" routerLinkActive="active">Technology</a>
-                <div class="create-interiew"> 
+                <h2 class="animated fadeInLeftBig">Here are all our <span><a routerLink="/interviews/all" routerLinkActive="active">interviews</a></span></h2>
+                <p class="animated fadeInRightBig">Discover and get inspired...</p>
+                <a data-scroll class="btn btn-start animated fadeInUpBig" routerLink="/interviews/business" routerLinkActive="active">Business</a>
+                <a data-scroll class="btn btn-start animated fadeInUpBig" routerLink="/interviews/art" routerLinkActive="active">Art</a>
+                <a data-scroll class="btn btn-start animated fadeInUpBig" routerLink="/interviews/technology" routerLinkActive="active">Technology</a>
+                <div class="create-interiew">
                     <p class="animated fadeInRightBig">or create your own and become one of our editors</p>
                     <a data-scroll class="btn btn-start animated fadeInUpBig" [routerLink]="isUserLoggedIn ? ['/interviews/create'] : ['/login']" routerLinkActive="active">Create Interview</a>
                 </div>
@@ -16,4 +16,3 @@
     </div>
 </div>
 
-  
