@@ -33,8 +33,8 @@ export class ProfileDetailsComponent {
         return this.user.age;
     }
 
-    // ngOnInit() {
-    //     this.userService.getUser()
-    //         .subscribe(users=> this.users=users);
-    // }
+    ngOnInit() {
+        this.userService.getUser(this.user._id)
+            .subscribe(user=> this.user=user);
+    }
 }

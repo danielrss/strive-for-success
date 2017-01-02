@@ -1,0 +1,10 @@
+.container-profile-details {
+    background-image: url('../../../public/images/profiles-all.png');
+    background-repeat: repeat !important;
+    background-size: cover !important;
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    min-height: 130%;
+    overflow: auto;
+}
