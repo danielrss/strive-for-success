@@ -26,12 +26,12 @@ import { NotAuthGuard } from './guards/not-auth.guard';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'interviews/create', component: InterviewCreateComponent },
     { path: 'interviews',
         component: InterviewsMainComponent,
         children: [
             { path: 'all', component: InterviewsAllComponent },
-            { path: 'create', component: InterviewCreateComponent },
-            { path: ':id', component: InterviewDetailsComponent }           
+            // { path: ':id', component: InterviewDetailsComponent }           
             // { path: 'business', component: InterviewsBusinessComponent },
             // { path: 'art', component: InterviewaArtComponent },
             // { path: 'technology', component: InterviewsTechnologyComponent }

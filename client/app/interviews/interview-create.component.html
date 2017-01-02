@@ -1,1 +1,70 @@
-<p>Create interview</p>
+<div id="home" class="home">
+    <div class="inner">
+        <div class="interviews active parallax">
+            <div class="interviews-create">
+                <div class="title col-sm-12">
+                    <h3>Fill in the form and create your own interview:</h3>
+                    <span class="border"></span>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal col-sm-6">
+                    <div class="form-group row" [ngClass]="{'has-error': (!title.valid && title.touched), 'has-success': (title.valid && title.touched)}">
+                        <div class="col-sm-12 form-group2">
+                            <input [formControl]="title" type="text" class="form-control" id="imageUrl3" placeholder="Title">
+                            <span *ngIf="!title.valid && title.touched" class="help-block sub-little-text">Invalid title!</span>
+                        </div>
+                    </div>
+                    <div class="form-group row" [ngClass]="{'has-error': (!imageUrl.valid && imageUrl.touched), 'has-success': (imageUrl.valid && imageUrl.touched)}">
+                        <div class="col-sm-12 form-group2">
+                            <input [formControl]="imageUrl" type="text" class="form-control" id="imageUrl3" placeholder="Image Url">
+                            <span *ngIf="!imageUrl.valid && imageUrl.touched" class="help-block sub-little-text">Invalid image url!</span>
+                        </div>
+                    </div>
+                    <div class="form-group row" [ngClass]="{'has-error': (!category.valid && category.touched), 'has-success': (category.valid && category.touched)}">
+                        <div class="col-sm-12 form-group2">
+                            <select [formControl]="category" class="form-control" id="imageUrl3">
+                                <option class="selected" selected disabled value>Choose Category</option>
+                                <option value="business">Business</option>
+                                <option value="art">Art</option>
+                                <option value="technology">Technology</option>
+                            </select>
+                            <span *ngIf="!category.valid && category.touched" class="help-block sub-little-text">Category is required!</span>
+                        </div>
+                    </div>
+                
+                    <!--<div class="form-group row" [ngClass]="{'has-error': (!question1.valid && question1.touched), 'has-success': (question1.valid && question1.touched)}">
+                        <div class="col-sm-12 form-group2">
+                            <input [formControl]="question1" type="text" class="form-control" id="imageUrl3" placeholder="Image Url">
+                            <span *ngIf="!question1.valid && question1.touched" class="help-block sub-little-text">Invalid Image Url!</span>
+                        </div>
+                    </div>-->
+                    <!--<div class="form-group row" [ngClass]="{'has-error': (!imageUrl.valid && imageUrl.touched), 'has-success': (imageUrl.valid && imageUrl.touched)}">
+                        <div class="col-sm-12 form-group2">
+                            <input [formControl]="imageUrl" type="text" class="form-control" id="imageUrl3" placeholder="Image Url">
+                            <span *ngIf="!imageUrl.valid && imageUrl.touched" class="help-block sub-little-text">Invalid Image Url!</span>
+                        </div>
+                    </div>-->
+                    <!--<div class="form-group row" >
+                        <div class="col-sm-12 form-group2">
+                            <select [formControl]="question1" class="form-control" [(ngModel)]="question">
+                                <option *ngFor="let question of questionsData" [value]="question">{{question}}</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!--<div class="form-group row" >
+                        <div class="col-sm-12 form-group2">
+                            <select [formControl]="question2" class="form-control">
+                                <option *ngFor="let question of questions">{{question}}</option>
+                            </select>
+                        </div>
+                    </div>                         -->
+                    <div class="form-group row">
+                        <div class="col-sm-12 btn-element ">
+                            <button type="submit" class="btn-purple btn-auth">Create</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

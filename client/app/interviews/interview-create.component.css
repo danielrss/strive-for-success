@@ -1,0 +1,21 @@
+#home .interviews-caption h2 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.interviews .form-horizontal {
+    margin-left: 330px;
+}
+
+.interviews h3 {
+    color: #fff;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.interviews .has-error {
+    height: 10px;
+}
