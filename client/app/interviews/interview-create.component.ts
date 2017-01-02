@@ -70,7 +70,7 @@ export class InterviewCreateComponent implements OnInit {
                     const errorMessage = "Creation failed!";
                     this.alertService.error(errorMessage);
                   }, () => {
-                     setTimeout(() => this.router.navigateByUrl('/interviews'), 2500);
+                     setTimeout(() => this.router.navigateByUrl('/interviews/all'), 2500);
                 });
         }
     }

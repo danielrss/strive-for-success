@@ -5,7 +5,8 @@ module.exports = function(app, passport, express, data) {
         interviewsController = require('../controllers/interviews-controller')(data);
 
     interviewsRouter
-        .post('/create', interviewsController.createInterview);
+        .post('/create', interviewsController.createInterview)
+        .get('/', interviewsController.getAllInterviews);
 
     app.use('/api/interviews', interviewsRouter);
 };
