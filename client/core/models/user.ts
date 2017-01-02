@@ -7,5 +7,6 @@ export class User {
     email: string;
     avatarUrl: string;
     dateCreated: Date;
-    interview: { id: string, title: string}
+    interview: { id: string, title: string};
+    peopleWhoStarredThis: { userFirstName: string, userLastName: string }[]
 }

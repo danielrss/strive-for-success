@@ -36,8 +36,7 @@ let UserSchema = new Schema({
         match: EMAIL_PATTERN
     },
     avatarUrl: {
-        type: String,
-        default: '../../public/images/profile.png'
+        type: String
     },
     salt: String,
     passwordHash: {

@@ -1,18 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../core/models/user';
 
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../core/services/user.service';
 @Component({
-    selector: '[app-profile-details]',
+    selector: 'app-profile-details',
     templateUrl: './profile-details.component.html',
     styleUrls: ['./profile-details.component.css']
 })
-export class ProfileDetailsComponent {
-    constructor(private userService: UserService){ }
+export class ProfileDetailsComponent implements OnInit{
+    private user: User
 
-    @Input() user: User;
+    constructor(private userService: UserService, private activatedRoute: ActivatedRoute){
+        this.user = {} as User;
+     }
 
+    ngOnInit() {
+        let id = this.activatedRoute.snapshot.params['id'];
+        console.log(id);
+        this.userService.getUser(id)
+                .subscribe(user => this.user = user.user);
+    }
+    
     get firstName(): string {
         return this.user.firstName;
     }
@@ -31,10 +41,5 @@ export class ProfileDetailsComponent {
 
     get age():number{
         return this.user.age;
-    }
-
-    ngOnInit() {
-        this.userService.getUser(this.user._id)
-            .subscribe(user=> this.user=user);
     }
 }

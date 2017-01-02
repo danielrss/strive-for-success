@@ -8,15 +8,15 @@
         <input class="form-control" id="search-box" placeholder="First name" [(ngModel)]="searchBox.value" (change)="onSearch(searchBox.value)" #searchBox />
     </div>
     <div class="content" *ngFor="let user of (users | filter: searchBox.value)">
-        <div class="user-info overlay" id="{{_id}}">
-            <div class="user-cover" *ngIf="!user.avatarUrl">
-                <img src="{{user.avatarUrl}}">
-            </div>
+        <div class="user-info overlay" id="{{user._id}}">
             <div class="user-cover" *ngIf="user.avatarUrl">
-                <img src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png">
+                <img [src]="user.avatarUrl">
+            </div>
+            <div class="user-cover" *ngIf="!user.avatarUrl">
+                <img src="../../../public/images/profile.png">
             </div>
             <div class="options">
-                <h3><a routerLink="/users/:{{_id}}" routerLinkActive="active">{{user.firstName}} {{user.lastName}}</a></h3>
+                <h3><a routerLink="/users/{{user._id}}" routerLinkActive="active">{{user.firstName}} {{user.lastName}}</a></h3>
             </div>
         </div>
     </div>
