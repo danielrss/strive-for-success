@@ -11,11 +11,10 @@ import { User } from '../../core/models/user';
 import { FilterPipe } from '../../core/pipes/filter.pipe';
 @Component({
     selector: 'app-profiles-all',
-    templateUrl: './profiles-all.component.html',
-    styleUrls: ['./profiles-all.component.css']
+    templateUrl: './profiles-all.component.html'
+    //styleUrls: ['./profiles-all.component.css']
 })
 export class ProfilesAllComponent implements OnInit{
-    public isUserLoggedIn: Observable<boolean> | boolean;
     public users: User[];
 
     constructor(private http: Http, private authService: AuthService, private userService: UserService, private filterPipe: FilterPipe) {

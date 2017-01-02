@@ -32,6 +32,10 @@ export class UserService {
         localStorage.clear();
     }
 
+    getUser(id: any) : Observable<any> {
+        return this.api.get(`${this.usersPath}/${id}`);
+    }
+
     isLoggedIn(): any {
         return this.authService.isLoggedIn();
     }
