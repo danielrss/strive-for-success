@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
-
 import { Interview } from '../models/interview';
 import { User } from '../models/user';
 
-@Injectable()
 export class InterviewsFactoryService {
     constructor() {}
 

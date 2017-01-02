@@ -59,12 +59,14 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
         Services.ApiService,
         Services.UserService,
         Services.UsersFactoryService,
+        Services.InterviewsFactoryService,
         Services.AlertService,
         Services.AuthService,
         Services.InterviewsService,
         Services.InterviewsFactoryService,
+        Services.UserInterviewsFactoryService,
         AuthGuard,
-        NotAuthGuard, 
+        NotAuthGuard,
         FilterPipe
     ],
     bootstrap: [AppComponent]

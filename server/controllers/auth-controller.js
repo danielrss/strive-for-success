@@ -54,7 +54,9 @@ module.exports = function(data) {
                                     email: user.email,
                                     firstName: user.firstName,
                                     lastName: user.lastName,
-                                    age: user.age
+                                    age: user.age,
+                                    interview: user.interview,
+                                    projects: user.projects
                                 }
                             });
                         }
