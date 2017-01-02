@@ -19,6 +19,7 @@ export class EditUserInfoComponent {
     public lastName: AbstractControl;
     public email: AbstractControl;
     public age: AbstractControl;
+    public avatarUrl: AbstractControl;
 
     public submitted: boolean = false;
     public user: User;
@@ -33,13 +34,15 @@ export class EditUserInfoComponent {
           'firstName': ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.pattern(this.LETTERS_PATTERN)])],
           'lastName': ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.pattern(this.LETTERS_PATTERN)])],
           'age': ['', Validators.compose([Validators.required, Validators.pattern(this.NUMBER_PATTERN)])],
-          'email': ['', Validators.compose([Validators.required, Validators.pattern(this.EMAIL_PATTERN)])]
+          'email': ['', Validators.compose([Validators.required, Validators.pattern(this.EMAIL_PATTERN)])],
+          'avatarUrl': ['']
         });
 
         this.firstName = this.form.controls['firstName'];
         this.lastName = this.form.controls['lastName'];
         this.age = this.form.controls['age'];
         this.email = this.form.controls['email'];
+        this.avatarUrl = this.form.controls['avatarUrl'];
     }
 
     public ngOnInit() {
@@ -48,6 +51,9 @@ export class EditUserInfoComponent {
         this.lastName.setValue(this.user.lastName);
         this.age.setValue(this.user.age);
         this.email.setValue(this.user.email);
+        if (this.user.avatarUrl) {
+            this.avatarUrl.setValue(this.user.avatarUrl);
+        }
     }
 
     public onSubmit(values: Object): void {
@@ -59,7 +65,8 @@ export class EditUserInfoComponent {
                 values['lastName'],
                 +values['age'],
                 values['email'],
-                null
+                null,
+                values['avatarUrl']
             );
 
             this.userService.updateUser(this.user._id, updatedUser)

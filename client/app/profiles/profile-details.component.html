@@ -1,19 +1,27 @@
-<div class="container-profile-details row parallax">
-    <div class="col-sm-12 title">
-        <h1>{{firstName}} {{lastName}}'s profile</h1>
+<div class="container-profile-details parallax">
+    <div class="title">
+        <h1>{{user.firstName}} {{user.lastName}}'s profile</h1>
     </div>
     <div class="user-info" id="{{_id}}">
         <div class="user-cover" id="profile-avatar" *ngIf="avatarUrl">
             <img [src]="avatarUrl">
         </div>
-        <div class="user-cover col-sm-6" *ngIf="!avatarUrl">
-            <img src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png">
+        <div class="user-cover" *ngIf="!avatarUrl">
+            <img src="../../../public/images/profile.png">
         </div>
         <div class="options">
-            <label class="" for="form-email">Email</label>
-            <input type="text" name="email" value={{email}} class="form-email form-control" id="form-email">
-            <label class="" for="form-first-name">First name</label>
-            <input type="text" name="firstName" value={{firstName}} class="form-first-name form-control" id="form-first-name">
+            <h3><label class="user-email">Email:  </label> {{ email }}</h3>
+            <h3><label class="user-firstname">First name:  </label> {{ firstName }}</h3>
         </div>
+        <!--<div class="interview-modules">
+            <ul>
+                <li *ngFor="let interview of interviews">
+                    {{this.module.title}}
+                </li>
+            </ul>
+        </div>-->
+        <!--<div class="buttons">
+            <button type="">Rate</button>
+        </div>-->
     </div>
 </div>

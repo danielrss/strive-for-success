@@ -7,4 +7,5 @@
     transition-property: opacity;
     min-height: 130%;
     overflow: auto;
+    text-align: center;
 }
