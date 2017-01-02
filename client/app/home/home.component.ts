@@ -11,17 +11,13 @@ import { AuthService } from '../../core/services';
 export class HomeComponent implements OnInit {
     public isUserLoggedIn: Observable<boolean> | boolean;
 
-    private _authService: AuthService;
-
-    constructor(authService: AuthService) {
-        this._authService = authService;
-    }
+    constructor(private authService: AuthService) { }
 
     ngOnInit() {
-        this.isUserLoggedIn = this._authService.isLoggedIn();
+        this.isUserLoggedIn = this.authService.isLoggedIn();
     }
 
     ngDoCheck() {
-        this.isUserLoggedIn = this._authService.isLoggedIn();
+        this.isUserLoggedIn = this.authService.isLoggedIn();
     }
 }

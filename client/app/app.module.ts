@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation';
 import { HomeComponent } from './home';
 import { ContactComponent } from './contact';
 import { AlertComponent } from './directives';
+import { NotFoundComponent } from './not-found';
 
 /* Models */
 import { User } from '../core/models/user'
@@ -52,6 +53,7 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
         AlertComponent,
 
         FilterPipe
+        NotFoundComponent
     ],
     providers: [
         Services.ApiService,

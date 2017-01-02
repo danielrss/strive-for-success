@@ -17,9 +17,11 @@ module.exports = function(app, passport, express, data) {
         // .get('/auth/twitter/callback', authController.loginTwitterCallback())
         // .get('/logout', authController.logout)
         .post('/register', authController.register)
-        .get('/', userController.getAllUsers);
-    // .get('/profile', userController.getProfile)
-    // .post('/profile', userController.updateProfile)
+        .get('/', userController.getAllUsers)
+        // .get('/profile', userController.getProfile)
+        // .post('/profile', userController.updateProfile)
+        .get('/:id', userController.getProfile)
+        .post('/:id', userController.updateProfile);
     // .get('/profile/avatar', userController.getProfileAvatar)
     // .post('/profile/avatar', userController.uploadProfileAvatar)
     // .get('/unauthorized', userController.getUnauthorized)

@@ -23,10 +23,6 @@ module.exports = function(models) {
                         return reject(err);
                     }
 
-                    if (!user) {
-                        return reject(user);
-                    }
-
                     return resolve(user);
                 });
             });
@@ -36,10 +32,6 @@ module.exports = function(models) {
                 User.findOneAndUpdate({ _id: id }, update, { new: true }, (err, user) => {
                     if (err) {
                         return reject(err);
-                    }
-
-                    if (!user) {
-                        return reject(user);
                     }
 
                     return resolve(user);

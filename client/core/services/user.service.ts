@@ -12,7 +12,7 @@ export class UserService {
     private usersPath: string = '/users';
     private registerPath: string = '/users/register';
     private loginPath: string = '/users/login';
-    private logoutPath: string = '/users/logout';
+    private updateProfilePath: string = '/users/';
 
     constructor(private api: ApiService, private authService: AuthService) {}
 
@@ -42,5 +42,9 @@ export class UserService {
 
     get loggedInUser() {
         return this.authService.getLoggedInUser();
+    }
+
+    updateUser(userId: string, user: User): Observable<any> {
+        return this.api.post(this.updateProfilePath + userId, user);
     }
  }

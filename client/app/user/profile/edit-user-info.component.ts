@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -6,11 +6,10 @@ import { User } from '../../../core/models/user';
 import { UserService, UsersFactoryService, AlertService } from '../../../core/services';
 
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+    templateUrl: './edit-user-info.component.html',
+    styleUrls: ['./edit-user-info.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class EditUserInfoComponent {
     private readonly LETTERS_PATTERN: RegExp = /^[A-Za-zА-Яа-я]+$/;
     private readonly EMAIL_PATTERN: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     private readonly NUMBER_PATTERN: RegExp = /^[0-9]+$/;
@@ -20,9 +19,6 @@ export class RegisterComponent implements OnInit {
     public lastName: AbstractControl;
     public email: AbstractControl;
     public age: AbstractControl;
-    public password: AbstractControl;
-    public repeatPassword: AbstractControl;
-    public passwords: FormGroup;
 
     public submitted: boolean = false;
     public user: User;
@@ -37,53 +33,49 @@ export class RegisterComponent implements OnInit {
           'firstName': ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.pattern(this.LETTERS_PATTERN)])],
           'lastName': ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.pattern(this.LETTERS_PATTERN)])],
           'age': ['', Validators.compose([Validators.required, Validators.pattern(this.NUMBER_PATTERN)])],
-          'email': ['', Validators.compose([Validators.required, Validators.pattern(this.EMAIL_PATTERN)])],
-          'passwords': fb.group({
-            'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-            'repeatPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-          })
+          'email': ['', Validators.compose([Validators.required, Validators.pattern(this.EMAIL_PATTERN)])]
         });
 
         this.firstName = this.form.controls['firstName'];
         this.lastName = this.form.controls['lastName'];
         this.age = this.form.controls['age'];
         this.email = this.form.controls['email'];
-        this.passwords = <FormGroup> this.form.controls['passwords'];
-        this.password = this.passwords.controls['password'];
-        this.repeatPassword = this.passwords.controls['repeatPassword'];
     }
 
     public ngOnInit() {
-
-    }
-
-    public ngAfterViewInit(): void {
-
+        this.user = this.userService.loggedInUser;
+        this.firstName.setValue(this.user.firstName);
+        this.lastName.setValue(this.user.lastName);
+        this.age.setValue(this.user.age);
+        this.email.setValue(this.user.email);
     }
 
     public onSubmit(values: Object): void {
         this.submitted = true;
 
         if (this.form.valid) {
-            this.user = this.userFactory.createUser(
-              values['firstName'],
-              values['lastName'],
-              +values['age'],
-              values['email'],
-              values['passwords']['password']
+            let updatedUser =  this.userFactory.createUser(
+                values['firstName'],
+                values['lastName'],
+                +values['age'],
+                values['email'],
+                null
             );
 
-            this.userService.registerUser(this.user)
+            this.userService.updateUser(this.user._id, updatedUser)
                 .subscribe(
-                  response => {
-                    const successMessage = 'Registration successful!';
+                response => {
+                    setTimeout(() => {
+                        this.user.firstName = response.user.firstName;
+                        this.user.lastName = response.user.lastName;
+                    }, 500);
+
+                    const successMessage = 'Your profile has been updated.';
                     this.alertService.success(successMessage);
                   }, error => {
                     const errorMessage = "A user with the same email already exists!";
                     this.alertService.error(errorMessage);
-                  }, () => {
-                     setTimeout(() => this.router.navigateByUrl('/login'), 500);
-                });
+                  });
         }
     }
 }

@@ -27,6 +27,11 @@ h3 {
   background-attachment: fixed;
 }
 
+img#favicon {
+    display: none;
+    visibility: hidden
+}
+
 /*.preloader {
   position: fixed;
   top: 0;
