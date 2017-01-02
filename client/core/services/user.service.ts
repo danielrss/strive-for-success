@@ -48,8 +48,8 @@ export class UserService {
         return this.authService.getLoggedInUser();
     }
 
-    updateLoggedUser(user: User): Observable<any> {
-        return this.api.post(`${this.usersPath}/${this.loggedInUser._id}`, user);
+    updateUser(userId: string, update: any): Observable<any> {
+        return this.api.post(`${this.usersPath}/${userId}`, update);
     }
 
     getInterview(): Observable<any> {

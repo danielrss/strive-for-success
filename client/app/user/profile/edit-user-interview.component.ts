@@ -5,7 +5,7 @@ import { Observable} from 'rxjs/Observable';
 
 import { User } from '../../../core/models/user';
 import { Interview } from '../../../core/models/interview';
-import { UserService, UserInterviewsFactoryService, AlertService } from '../../../core/services';
+import { UserService, AlertService } from '../../../core/services';
 
 @Component({
     templateUrl: './edit-user-interview.component.html',
@@ -43,7 +43,6 @@ export class EditUserInterviewComponent {
             private fb: FormBuilder,
             private router: Router,
             private userService: UserService,
-            private interviewFactory: UserInterviewsFactoryService,
             private alertService: AlertService) {
     }
 
@@ -53,23 +52,17 @@ export class EditUserInterviewComponent {
 
         let fbGroupObj = {};
         if (this.user.interview) {
-            this.form = this.fb.group(fbGroupObj);
-            this.userService.getInterview()
-                .subscribe(
-                    response => this.interview = response.interview,
-                    err => console.log(err),
-                    () => {
-                        this.interview.questions.forEach(q => {
-                            fbGroupObj[q.title] = ['', Validators.compose([Validators.required, Validators.minLength(10)])];
-                        });
-                        this.form = this.fb.group(fbGroupObj);
+            this.interview = this.user.interview;
 
-                        this.interview.questions.forEach(q => {
-                            this.form.controls[q.title].setValue(this.interview.questions.find((qs => qs.title === q.title)).answer);
-                            this.questions.push({ title: q.title, control: this.form.controls[q.title] })
-                        });
-                    }
-                );
+            this.interview.questions.forEach(q => {
+                fbGroupObj[q.title] = ['', Validators.compose([Validators.required, Validators.minLength(10)])];
+            });
+            this.form = this.fb.group(fbGroupObj);
+
+            this.interview.questions.forEach(q => {
+                this.form.controls[q.title].setValue(this.interview.questions.find((qs => qs.title === q.title)).answer);
+                this.questions.push({ title: q.title, control: this.form.controls[q.title] })
+            });
         } else {
             this.defaultQuestionTitles.forEach(qt => {
                 fbGroupObj[qt] = ['', Validators.compose([Validators.required, Validators.minLength(10)])];
@@ -90,13 +83,12 @@ export class EditUserInterviewComponent {
             this.questions.forEach(q => {
                 interviewQuestions.push({ title: q.title, answer: q.control.value });
             });
-            let updatedInterview = this.interviewFactory.createInterview(
-                this.user,
-                this.interviewTitle,
-                interviewQuestions
-            );
+            let updatedInterview = {
+                title: this.interviewTitle,
+                questions: interviewQuestions
+            };
 
-            this.userService.updateInterview(updatedInterview)
+            this.userService.updateUser(this.user._id, { interview: updatedInterview })
                 .subscribe(
                     response => {
                         const successMessage = 'Your interview has been updated.';

@@ -62,7 +62,7 @@ export class EditUserInfoComponent {
                 null
             );
 
-            this.userService.updateLoggedUser(updatedUser)
+            this.userService.updateUser(this.user._id, updatedUser)
                 .subscribe(
                     response => {
                         setTimeout(() => {
