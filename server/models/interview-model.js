@@ -21,6 +21,20 @@ let InterviewSchema = new Schema({
     imageUrl: {
         type: String
     },
+    category:{
+        type: String,
+        required: true,
+        minlength: [1, 'Category is too short!'],
+        maxlength: [50, 'Category is too long!'],
+        match: ALPHA_PATTERN
+    },
+    content:{
+        type: String,
+        required: true,
+        minlength: [50, 'Interview is too short!'],
+        maxlength: [1000, 'Interview is too long!'],
+        match: ALPHA_PATTERN
+    },
     image: {},
     questions: [{}],
     peopleWhoLikeThis: [{}],
