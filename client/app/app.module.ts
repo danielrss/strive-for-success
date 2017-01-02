@@ -30,7 +30,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
 
 /* Pipes */
-import { FilterPipe } from '../core/pipes/filter.pipe';
+import { PipesModule } from '../core/pipes';
 
 @NgModule({
     imports: [
@@ -43,7 +43,8 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
 
         UserModule,
         InterviewModule,
-        ProfileModule
+        ProfileModule,
+        PipesModule
     ],
     declarations: [
         AppComponent,

@@ -8,20 +8,28 @@ import { InterviewsMainComponent } from './interviews-main.component';
 import { InterviewsAllComponent } from './interviews-all.component';
 import { InterviewDetailsComponent } from './interview-details.component'
 import { InterviewCreateComponent } from './interview-create.component';
+import { InterviewsArtComponent } from './interviews-art.component';
+import { InterviewsBusinessComponent } from './interviews-business.component';
+import { InterviewsTechnologyComponent } from './interviews-technology.component';
+import { PipesModule } from '../../core/pipes';
 
 @NgModule({
     declarations: [
         InterviewsMainComponent,
         InterviewsAllComponent,
         InterviewDetailsComponent,
-        InterviewCreateComponent
+        InterviewCreateComponent,
+        InterviewsArtComponent,
+        InterviewsBusinessComponent,
+        InterviewsTechnologyComponent
     ],
     imports: [
         CommonModule,
         RouterModule,
         HttpModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PipesModule
     ],
     exports: [],
     providers: []
