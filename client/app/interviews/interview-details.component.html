@@ -2,15 +2,15 @@
     <div class="title">
         <h1>{{interview.title}}</h1>
     </div>
-    <div class="user-info" id="{{_id}}">
-        <div class="user-cover" id="profile-avatar">
+    <div class="interview-info" id="{{_id}}">
+        <div class="interview-cover" id="interview-avatar">
             <img [src]="interview.imageUrl">
         </div>
         <div class="options">
-            <h3><label class="user-detail">Author:</label> {{ author }}</h3>
+            <!--<h3><label class="user-detail">Author:</label> {{ author }}</h3>-->
             <h3><label class="user-detail">Category:</label> {{ category }}</h3>
             <h3> <label class="user-detail">Interview:</label></h3>
-            <h3><pre> {{ content }} </pre></h3>
+            <h3 class="interview-content"><pre> {{ content }} </pre></h3>
         </div>
     </div>
 </div>
