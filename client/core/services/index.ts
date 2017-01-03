@@ -6,3 +6,4 @@ export { UsersFactoryService } from './usersFactory.service';
 export { InterviewsFactoryService } from './interviewsFactory.service';
 export { InterviewsService } from './interview.service'
 export { AuthService } from './auth.service';
+export { ContactService } from './contact.service';

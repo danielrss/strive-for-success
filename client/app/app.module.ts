@@ -63,6 +63,7 @@ import { PipesModule } from '../core/pipes';
         Services.AuthService,
         Services.InterviewsService,
         Services.InterviewsFactoryService,
+        Services.ContactService,
         AuthGuard,
         NotAuthGuard
     ],

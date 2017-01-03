@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { UserService, AlertService } from '../../../core/services';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
     private readonly EMAIL_PATTERN: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     public form: FormGroup;
     public email: AbstractControl;
@@ -30,10 +30,6 @@ export class LoginComponent implements OnInit{
         this.email = this.form.controls['email'];
         this.password = this.form.controls['password'];
     }
-
-    ngOnInit(): void {}
-
-    public ngAfterViewInit(): void {}
 
     public onSubmit(values: Object): void {
         this.submitted = true;

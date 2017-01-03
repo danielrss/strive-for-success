@@ -32,7 +32,6 @@ module.exports = function(data) {
                 });
         },
         getInterview(req, res) {
-            console.log(req.params.id);
             return data.getInterviewById(req.params.id)
                 .then((interview) => {
                     if (interview) {
