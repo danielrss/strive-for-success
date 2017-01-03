@@ -69,13 +69,13 @@
     "ts-helpers": "1.1.2",
     "webpack": "2.1.0-beta.27",
     "webpack-merge": "~1.0.1",
-    "typescript": "2.1.1"
-  },
-  "devDependencies": {
+    "typescript": "2.1.1",
     "@types/core-js": "^0.9.35",
     "@types/jasmine": "^2.5.35",
     "@types/node": "^6.0.45",
-    "@types/webpack": "^1.12.34",
+    "@types/webpack": "^1.12.34"
+  },
+  "devDependencies": {
     "jasmine-core": "^2.4.1",
     "karma": "^1.2.0",
     "karma-chrome-launcher": "^2.0.0",
