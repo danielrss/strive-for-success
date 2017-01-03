@@ -41,6 +41,14 @@
     text-align: center;
 }
 
+.container-profile-details .user-info .user-cover img {
+    background-color: #fff7f8;
+    height: 200px;
+    width: 180px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .interview h3,
 .interview h4,
 .interview label {
