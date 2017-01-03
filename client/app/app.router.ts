@@ -37,6 +37,7 @@ export const APP_ROUTES: Routes = [
     { path: 'interviews/art', component: InterviewsArtComponent },
     { path: 'interviews/business', component: InterviewsBusinessComponent },
     { path: 'interviews/technology', component: InterviewsTechnologyComponent },
+    { path: 'interviews/:id', component: InterviewDetailsComponent },
     { path: 'interviews', component: InterviewsMainComponent },
     { path: 'users/:id', component: ProfileDetailsComponent },
     {
