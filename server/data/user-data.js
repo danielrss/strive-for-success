@@ -59,6 +59,33 @@ module.exports = function(models) {
                     return resolve(users);
                 });
             });
-        }
+        },
+
+        getUsers(usersPerPage, pageNumber) {
+            return new Promise((resolve, reject) => {
+                User.find({})
+                    .limit(usersPerPage)
+                    .skip(usersPerPage * pageNumber)
+                    .select('_id firstName lastName avatarUrl')
+                    .exec((err, users) => {
+                        if (err) {
+                            return reject(err);
+                        }
+
+                        return resolve(users);
+                    });
+            });
+        },
+        searchUsers(name) {
+            return new Promise((resolve, reject) => {
+                User.find({ $or:[{ 'firstName': new RegExp(name, 'i') }, { 'lastName': new RegExp(name, 'i') }] }, (err, users) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(users);
+                });
+            });
+        },
     };
 };

@@ -30,6 +30,6 @@ export class NavigationComponent implements OnInit {
     public logout() {
         this.alertService.success('You have logged out successfully.')
         this.userService.logoutUser();
-        setTimeout(() => this.router.navigateByUrl('/'), 1500);
+        setTimeout(() => this.router.navigateByUrl('/'), 500);
     }
 }
