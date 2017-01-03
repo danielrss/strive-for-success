@@ -41,5 +41,4 @@ jspm_packages
 bower_components
 node_modules
 typings
-dist
 coverage

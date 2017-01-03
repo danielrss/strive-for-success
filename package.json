@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Telerik Software Academy - Angular 2 Team Project",
   "scripts": {
-    "start": "npm run build:prod && node server/server.js",
+    "start": "node server/server.js",
     "dev": "concurrently \"npm run build:dev\" \"nodemon server/server.js\"",
     "test": "karma start",
     "server": "node server/server.js",
