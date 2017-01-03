@@ -8,7 +8,7 @@
             <label for="filter">Search</label>
             <input class="form-control" id="search-box" placeholder="Name" (keyup)="onSearch(searchInput.value)" #searchInput />
         </div>
-        <div class="pipes">
+        <div class="pipes animated fadeInDownBig">
             <div class="sort">
                 <label for="sort">Sort</label>
                 <select class="form-control" id="sort" (change)="onSort([selectedSort.selectedOptions[0].value])" #selectedSort>
@@ -25,7 +25,7 @@
             </select>
             </div>
         </div>
-        <div class="content-users">
+        <div class="content-users animated fadeInUpBig">
             <div class="user-info overlay" *ngFor="let user of (users | sort: [selectedSort.selectedOptions[0].value] | order: [selectedOrder.selectedOptions[0].value] | filter: searchInput.value)" id="{{user._id}}">
                 <div class="user-cover" *ngIf="user.avatarUrl">
                     <img [src]="user.avatarUrl">
