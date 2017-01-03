@@ -32,7 +32,7 @@ let InterviewSchema = new Schema({
         type: String,
         required: true,
         minlength: [50, 'Interview is too short!'],
-        maxlength: [1000, 'Interview is too long!'],
+        maxlength: [10000, 'Interview is too long!'],
         match: ALPHA_PATTERN
     },
     image: {},

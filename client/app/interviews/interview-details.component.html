@@ -1,16 +1,20 @@
-<div class="container-profile-details parallax">
-    <div class="title">
-        <h1>{{interview.title}}</h1>
-    </div>
-    <div class="interview-info" id="{{_id}}">
-        <div class="interview-cover" id="interview-avatar">
-            <img [src]="interview.imageUrl">
+<div class="users-container" id="user-details">
+    <div id="profiles" class="item active parallax interviews-details">  
+<!--<div class="container-profile-details parallax">
+    <div class="title">-->
+        <div class="title profiles-caption">
+            <h1>{{interview.title}}</h1>
         </div>
-        <div class="options">
-            <!--<h3><label class="user-detail">Author:</label> {{ author }}</h3>-->
-            <h3><label class="user-detail">Category:</label> {{ category }}</h3>
-            <h3> <label class="user-detail">Interview:</label></h3>
-            <h3 class="interview-content"><pre> {{ content }} </pre></h3>
+        <div class="interview-info" id="{{_id}}">
+            <div class="interview-cover" id="interview-avatar">
+                <img [src]="interview.imageUrl">
+            </div>
+            <div class="options">
+                <!--<h3><label class="user-detail">Author:</label> {{ author }}</h3>-->
+                <h3><label class="user-detail">Category:</label> {{ category }}</h3>
+            </div>
         </div>
+        <h3 class="interview-label"> <label class="user-detail">Interview:</label></h3>
+        <h3 class="interview-content"><pre> {{ content }} </pre></h3>
     </div>
 </div>

@@ -1,9 +1,10 @@
 pre {
-    width:600px;
+    width:750px;
 }
 
 .interview-content{
-    padding-left: 370px;
+    padding-left: 300px;
+    text-align: center;
 }
 
 .container-profile-details {
@@ -28,31 +29,35 @@ pre {
 }
 
 .user-detail,
-.container-profile-details .title h1 {
+#profiles .title h1 {
     color: lightblue;
 }
 
-.container-profile-details .interview-info {
-    position: absolute;
-    top: 37%;
-    left: 0;
-    right: 0;
+.interviews-details .interview-info {
+    padding-top: 130px;
+    padding-left: 35%;
     font-size: 10px;
     color: #fff;
 }
 
-.container-profile-details .interview-info .interview-cover {
+.interviews-details .interview-info .interview-cover {
     background-color: #fff7f8;
     height: 400px;
     width: 400px;
-    margin: 0 auto;
     text-align: center;
 }
 
-.container-profile-details .interview-info .interview-cover img {
+.interviews-details .interview-info .interview-cover img {
     background-color: #fff7f8;
     height: 400px;
     width: 400px;
-    margin: 0 auto;
+    text-align: center;
+}
+
+.interviews-details .options h3{
+    padding-left: 120px;
+}
+
+.interview-label {
     text-align: center;
 }
