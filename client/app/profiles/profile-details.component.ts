@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RatingModule } from 'ng2-rating';
 import { User } from '../../core/models/user';
 
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +18,6 @@ export class ProfileDetailsComponent implements OnInit{
 
     ngOnInit() {
         let id = this.activatedRoute.snapshot.params['id'];
-        console.log(id);
         this.userService.getUser(id)
                 .subscribe(user => this.user = user.user);
     }
@@ -41,5 +40,9 @@ export class ProfileDetailsComponent implements OnInit{
 
     get age():number{
         return this.user.age;
+    }
+
+    get interview():any {
+        return this.user.interview;
     }
 }

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule} from '@angular/forms';
+import { RatingModule } from 'ng2-rating';
 
 import { ProfilesAllComponent } from './profiles-all.component';
 import { ProfileDetailsComponent } from './profile-details.component'
@@ -22,7 +23,8 @@ import { FilterPipe } from '../../core/pipes/filter.pipe';
         RouterModule,
         HttpModule,
         BrowserModule,
-        FormsModule
+        FormsModule,
+        RatingModule
     ],
     exports: [],
     providers: [
