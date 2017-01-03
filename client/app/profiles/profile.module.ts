@@ -9,14 +9,12 @@ import { RatingModule } from 'ng2-rating';
 import { ProfilesAllComponent } from './profiles-all.component';
 import { ProfileDetailsComponent } from './profile-details.component'
 
-import { FilterPipe } from '../../core/pipes/filter.pipe';
+import { PipesModule } from '../../core/pipes';
 
 @NgModule({
     declarations: [
         ProfilesAllComponent,
-        ProfileDetailsComponent,
-
-        FilterPipe
+        ProfileDetailsComponent
     ],
     imports: [
         CommonModule,
@@ -24,11 +22,10 @@ import { FilterPipe } from '../../core/pipes/filter.pipe';
         HttpModule,
         BrowserModule,
         FormsModule,
-        RatingModule
+        RatingModule,
+        PipesModule
     ],
     exports: [],
-    providers: [
-        FilterPipe
-    ]
+    providers: []
 })
 export class ProfileModule { }

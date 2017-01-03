@@ -1,4 +1,4 @@
-#profiles {
+#profiles-all {
     background-image: url('../../../public/images/profiles-all.png');
     background-repeat: repeat !important;
     background-size: cover !important;
@@ -9,7 +9,7 @@
     overflow: auto;
 }
 
-.profiles-caption {
+#profiles-all .profiles-caption {
     position: absolute;
     margin-top: 20px;
     left: 0;
@@ -20,22 +20,49 @@
     color: #fff;
 }
 
-.search {
+#profiles-all .search {
     margin: 0 auto;
-    margin-top: 220px;
+    margin-top: 200px;
     position: absolute;
     align-content: center;
     left: 0;
     right: 0;
     text-align: center;
-    text-transform: uppercase;
     font-size: 18px;
     font-weight: 300;
     color: #fff;
     width: 450px;
 }
 
-.profiles-caption h2 {
+#profiles-all .pipes {
+    display: inline-block;
+    margin: 0 auto;
+    align-content: center;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: 280px;
+    position: absolute;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#profiles-all .pipes .order,
+#profiles-all .pipes .sort {
+    display: inline-block;
+    padding-left: 20px;
+    width: 200px;
+    margin: 0 auto;
+    align-content: center;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+}
+
+#profiles-all .profiles-caption h2 {
     color: #fff;
     font-size: 50px;
     font-weight: 700;
@@ -44,13 +71,13 @@
     text-align: center;
 }
 
-.profiles .title {
+#profiles-all .profiles .title {
     float: left;
     position: relative;
     width: 100%;
 }
 
-.profiles-caption p {
+#profiles-all .profiles-caption p {
     float: left;
     position: relative;
     width: 100%;
@@ -61,25 +88,25 @@
     font-size: 20px;
 }
 
-img {
+#profiles-all img {
     height: 200px;
     width: 180px;
 }
 
-.content {
+#profiles-all .content-users {
     margin: 0 auto;
     align-content: center;
-    margin-top: 330px;
+    margin-top: 340px;
     padding-left: 115px;
     font-size: 18px;
     font-weight: 300;
 }
 
-.overlay {
+#profiles-all .overlay {
     display: block;
     float: left;
     padding: 15px;
-    margin: 30px 30px;
+    margin: 15px 30px;
     text-align: center;
     background-color: #fff7f8;
     -webkit-transition: opacity 1s ease-in-out;
@@ -89,7 +116,7 @@ img {
     transition: opacity 1s ease-in-out;
 }
 
-.overlay h3 a:hover {
+#profiles-all .overlay h3 a:hover {
     cursor: pointer;
     zoom: 1;
     filter: alpha(opacity=50);

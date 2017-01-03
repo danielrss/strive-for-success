@@ -8,7 +8,7 @@ import { AuthService, UserService } from '../../core/services';
 
 import { User } from '../../core/models/user';
 
-import { FilterPipe } from '../../core/pipes/filter.pipe';
+import { FilterPipe, OrderPipe, SortPipe } from '../../core/pipes';
 @Component({
     selector: 'app-profiles-all',
     templateUrl: './profiles-all.component.html',
@@ -17,7 +17,8 @@ import { FilterPipe } from '../../core/pipes/filter.pipe';
 export class ProfilesAllComponent implements OnInit{
     public users: User[];
 
-    constructor(private http: Http, private authService: AuthService, private userService: UserService, private filterPipe: FilterPipe) {
+    constructor(private http: Http, private authService: AuthService, private userService: UserService, 
+        private filterPipe: FilterPipe, private orderPipe: OrderPipe, private sortPipe: SortPipe) {
         this.users=[];
     }
 
@@ -28,5 +29,13 @@ export class ProfilesAllComponent implements OnInit{
 
     onSearch(option: string){
         this.filterPipe.transform(this.users, option)
+    }
+
+    onSort(options: any[]){
+        this.sortPipe.transform(this.users, options);
+    }
+
+    onOrder(options: any[]){
+        this.orderPipe.transform(this.users, options);
     }
 }
