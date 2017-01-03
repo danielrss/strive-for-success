@@ -6,6 +6,10 @@ import { User } from '../models/user'
 })
 export class SortPipe implements PipeTransform{
     transform(users: User[], sortBy: string, order: string): any[] {
+        if (sortBy === 'rating') {
+            return users;
+        }
+
         if (order.indexOf('asc') > -1) {
             return users.sort((m1, m2) => {
                 return m1[sortBy].toString().localeCompare(m2[sortBy].toString());

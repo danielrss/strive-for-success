@@ -49,7 +49,11 @@ export class ProfilesAllComponent implements OnInit {
         }
     }
 
-    onSort(sortBy: string, order: string){
-        this.sortPipe.transform(this.users, sortBy, order);
+    onSort(sortBy: string, order: string) {
+        if (sortBy === 'rating') {
+            return;
+        } else {
+            this.sortPipe.transform(this.users, sortBy, order);
+        }
     }
 }
