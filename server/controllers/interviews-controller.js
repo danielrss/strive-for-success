@@ -31,5 +31,20 @@ module.exports = function(data) {
                         .json({ validationErrors: helpers.errorHelper(err) });
                 });
         },
+        getInterview(req, res) {
+            console.log(req.params.id);
+            return data.getInterviewById(req.params.id)
+                .then((interview) => {
+                    if (interview) {
+                        res.status(200).json({ message: 'success', interview });
+                    } else {
+                        res.status(400).json({ message: 'interview not found' });
+                    }
+                })
+                .catch(err => {
+                    res.status(400)
+                        .send(JSON.stringify({ validationErrors: helpers.errorHelper(err) }));
+                });
+        }
     };
 };

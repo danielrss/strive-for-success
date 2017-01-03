@@ -6,6 +6,7 @@ module.exports = function(app, passport, express, data) {
 
     interviewsRouter
         .post('/create', interviewsController.createInterview)
+        .get('/:id', interviewsController.getInterview)
         .get('/', interviewsController.getAllInterviews);
 
     app.use('/api/interviews', interviewsRouter);

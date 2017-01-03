@@ -18,6 +18,10 @@ export class InterviewsService {
         return this.api.get(this.interviewsPath);
     }
 
+    getInterview(id: any) : Observable<any> {
+        return this.api.get(`${this.interviewsPath}/${id}`);
+    }
+
     createInterview(interview: Interview): Observable<any> {
         return this.api.post(this.createPath, interview);
     }

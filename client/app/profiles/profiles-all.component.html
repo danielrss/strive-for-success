@@ -3,7 +3,7 @@
     [infiniteScrollDistance]="scrollDistance"
     [infiniteScrollThrottle]="scrollThrottle"
     (scrolled)="onScroll()">
-    <div id="profiles" class="item active parallax">
+    <div id="profiles-all" class="item active parallax">
         <div class="title profiles-caption">
             <h2 class="animated fadeInLeftBig">Discover <strong>Profiles</strong></h2>
             <p class="animated fadeInRightBig">Loop through current users catalogue</p>
@@ -12,6 +12,23 @@
             <label for="filter">Search</label>
             <input class="form-control" id="search-box" placeholder="Name" (keyup)="onSearch(searchInput.value)" #searchInput />
         </div>
+    <div class="pipes">
+        <div class="sort">
+            <label for="sort">Sort</label>
+            <select class="form-control" id="sort" (change)="onSort([selectedSort.selectedOptions[0].value])" #selectedSort>
+                <option value="FirstName" selectedSort>FirstName</option>
+                <option value="LastName">LastName</option>
+                <option value="Rating">Rating</option>
+            </select>
+        </div>
+        <div class="order">
+            <label for="order">Order</label>
+            <select class="form-control" id="order" (change)="onOrder([selectedOrder.selectedOptions[0].value])" #selectedOrder>
+                <option value="Asc" selectedOrder>Asc</option>
+                <option value="Desc">Desc</option>
+            </select>
+        </div>
+    </div>
         <div class="content animated fadeInUpBig">
             <div class="user-info overlay" *ngFor="let user of users" id="{{user._id}}">
                 <div class="user-cover" *ngIf="user.avatarUrl">
