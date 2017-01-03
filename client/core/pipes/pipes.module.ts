@@ -32,7 +32,8 @@ import { InterviewsFilterPipe } from './interviews-filter.pipe';
         InterviewsSortPipe,
         FilterPipe,
         OrderPipe,
-        SortPipe
+        SortPipe,
+        InterviewsFilterPipe,
     ]
 })
 
