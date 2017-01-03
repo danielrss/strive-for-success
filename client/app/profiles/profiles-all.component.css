@@ -1,4 +1,4 @@
-#profiles-all {
+#profiles {
     background-image: url('../../../public/images/profiles-all.png');
     background-repeat: repeat !important;
     background-size: cover !important;
@@ -13,7 +13,7 @@
     height: 100%
 }
 
-#profiles-all .profiles-caption {
+#profiles .profiles-caption {
     position: absolute;
     margin-top: 20px;
     left: 0;
@@ -24,7 +24,7 @@
     color: #fff;
 }
 
-#profiles-all .search {
+#profiles .search {
     margin: 0 auto;
     margin-top: 200px;
     position: absolute;
@@ -38,7 +38,7 @@
     width: 450px;
 }
 
-#profiles-all .pipes {
+#profiles .pipes {
     display: inline-block;
     margin: 0 auto;
     align-content: center;
@@ -51,8 +51,8 @@
     font-weight: 300;
 }
 
-#profiles-all .pipes .order,
-#profiles-all .pipes .sort {
+#profiles .pipes .order,
+#profiles .pipes .sort {
     display: inline-block;
     padding-left: 20px;
     width: 200px;
@@ -66,7 +66,7 @@
     color: #fff;
 }
 
-#profiles-all .profiles-caption h2 {
+#profiles .profiles-caption h2 {
     color: #fff;
     font-size: 50px;
     font-weight: 700;
@@ -75,13 +75,13 @@
     text-align: center;
 }
 
-#profiles-all .profiles .title {
+#profiles .profiles .title {
     float: left;
     position: relative;
     width: 100%;
 }
 
-#profiles-all .profiles-caption p {
+#profiles .profiles-caption p {
     float: left;
     position: relative;
     width: 100%;
@@ -92,12 +92,12 @@
     font-size: 20px;
 }
 
-#profiles-all img {
+img {
     height: 200px;
     width: 180px;
 }
 
-#profiles-all .content-users {
+.content-users {
     margin: 0 auto;
     align-content: center;
     margin-top: 340px;
@@ -106,7 +106,7 @@
     font-weight: 300;
 }
 
-#profiles-all .overlay {
+.overlay {
     display: block;
     float: left;
     padding: 15px;
@@ -120,7 +120,7 @@
     transition: opacity 1s ease-in-out;
 }
 
-#profiles-all .overlay h3 a:hover {
+.overlay h3 a:hover {
     cursor: pointer;
     zoom: 1;
     filter: alpha(opacity=50);
