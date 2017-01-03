@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="content-all animated fadeInUpBig">
-        <div class="interview-info overlay" *ngFor="let interview of (interviews | interviewsFilterPipe: searchBox.value)" id="{{interview._id}}">
+        <div class="interview-info overlay" *ngFor="let interview of (interviews | interviewsSortPipe:'business' | interviewsFilterPipe: searchBox.value)" id="{{interview._id}}">
             <div class="interview-cover">
                 <img src="{{interview.imageUrl}}">
             </div>

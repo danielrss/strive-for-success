@@ -10,18 +10,24 @@
             <img src="../../../public/images/profile.png">
         </div>
         <div class="options">
-            <h3><label class="user-email">Email:  </label> {{ email }}</h3>
-            <h3><label class="user-firstname">First name:  </label> {{ firstName }}</h3>
+            <h3><label class="user-detail">Email:</label> {{ email }}</h3>
+            <h3><label class="user-detail">First name:</label> {{ firstName }}</h3>
+            <h3><label class="user-detail">Last name:</label> {{ lastName }}</h3>
+            <h3><label class="user-detail">Age:</label> {{ age }}</h3>
         </div>
-        <!--<div class="interview-modules">
+        <br>
+        <div class="interview">
+            <h3 class="interview-title">Personal interview: {{ title }}</h3>
             <ul>
-                <li *ngFor="let interview of interviews">
-                    {{this.module.title}}
+                <li *ngFor="let question of interview">
+                    <h4><label class="user-firstname">Q:</label> {{question.title}}</h4>
+                    <h4><label class="user-firstname">A:</label> {{question.answer}}</h4>
+                    <br>
                 </li>
             </ul>
-        </div>-->
-        <!--<div class="buttons">
-            <button type="">Rate</button>
-        </div>-->
+        </div>
+        <br>
+        <rating [(ngModel)]="rating" [max]="5" iconClass="fa-star" fullIcon="★" emptyIcon="☆" [readonly]="false" [disabled]="false" [required]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">
+        </rating>
     </div>
 </div>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { RatingModule } from 'ng2-rating';
 import { User } from '../../core/models/user';
-import { UserService } from '../../core/services/user.service';
 
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../../core/services/user.service';
 @Component({
     selector: 'app-profile-details',
     templateUrl: './profile-details.component.html',
@@ -18,11 +18,10 @@ export class ProfileDetailsComponent implements OnInit{
 
     ngOnInit() {
         let id = this.activatedRoute.snapshot.params['id'];
-        console.log(id);
         this.userService.getUser(id)
                 .subscribe(user => this.user = user.user);
     }
-
+    
     get firstName(): string {
         return this.user.firstName;
     }
@@ -41,5 +40,9 @@ export class ProfileDetailsComponent implements OnInit{
 
     get age():number{
         return this.user.age;
+    }
+
+    get interview():any {
+        return this.user.interview;
     }
 }

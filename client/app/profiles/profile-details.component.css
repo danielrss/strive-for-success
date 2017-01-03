@@ -9,3 +9,40 @@
     overflow: auto;
     text-align: center;
 }
+
+.container-profile-details .title {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.user-detail,
+.container-profile-details .title h1 {
+    color: lightblue;
+}
+
+.container-profile-details .user-info {
+    position: absolute;
+    top: 37%;
+    left: 0;
+    right: 0;
+    font-size: 10px;
+    color: #fff;
+}
+
+.container-profile-details .user-info .user-cover {
+    background-color: #fff7f8;
+    height: 200px;
+    width: 180px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.interview h3,
+.interview h4,
+.interview label {
+    color: Beige;
+}

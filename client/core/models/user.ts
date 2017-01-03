@@ -7,6 +7,6 @@ export class User {
     email: string;
     avatarUrl: string;
     dateCreated: Date;
-    peopleWhoStarredThis: { userFirstName: string, userLastName: string }[]
     interview: any;
+    rating: any;
 }
