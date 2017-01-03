@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { InterviewsSortPipe } from './interviews-sort.pipe';
 import { FilterPipe } from './filter.pipe';
+import { InterviewsFilterPipe } from './interviews-filter.pipe';
 
 @NgModule({
     declarations: [
         InterviewsSortPipe,
+        InterviewsFilterPipe,
         FilterPipe
     ],
     imports: [
@@ -15,7 +17,9 @@ import { FilterPipe } from './filter.pipe';
         BrowserModule
     ],
     exports: [
-        InterviewsSortPipe
+        InterviewsSortPipe,
+        InterviewsFilterPipe,
+        FilterPipe
     ],
     providers: []
 })

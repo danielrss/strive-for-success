@@ -2,9 +2,13 @@
     <div class="title profiles-caption">
         <h2 class="animated fadeInLeftBig">Discover <strong>Interviews</strong></h2>
         <p class="animated fadeInRightBig">Loop through current interviews catalogue</p>
+        <div class="search animated fadeInDownBig">
+            <label for="filter">Search</label>
+            <input class="form-control" id="search-box" placeholder="Title" [(ngModel)]="searchBox.value" (change)="onSearch(searchBox.value)" #searchBox />
+        </div>
     </div>
-    <div class="content-all" >
-        <div class="interview-info overlay" *ngFor="let interview of (interviews | interviewsSortPipe:'art')" id="{{interview._id}}">
+    <div class="content-all animated fadeInUpBig">
+        <div class="interview-info overlay" *ngFor="let interview of (interviews | interviewsSortPipe:'art' | interviewsFilterPipe: searchBox.value)" id="{{interview._id}}">
             <div class="interview-cover">
                 <img src="{{interview.imageUrl}}">
             </div>

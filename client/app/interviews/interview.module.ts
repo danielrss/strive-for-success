@@ -12,6 +12,8 @@ import { InterviewsArtComponent } from './interviews-art.component';
 import { InterviewsBusinessComponent } from './interviews-business.component';
 import { InterviewsTechnologyComponent } from './interviews-technology.component';
 import { PipesModule } from '../../core/pipes';
+import { InterviewsFilterPipe } from '../../core/pipes';
+import { FilterPipe } from '../../core/pipes'
 
 @NgModule({
     declarations: [
@@ -32,6 +34,9 @@ import { PipesModule } from '../../core/pipes';
         PipesModule
     ],
     exports: [],
-    providers: []
+    providers: [ 
+        InterviewsFilterPipe,
+        FilterPipe 
+    ]
 })
 export class InterviewModule { }

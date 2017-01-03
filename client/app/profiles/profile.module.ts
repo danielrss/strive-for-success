@@ -8,25 +8,22 @@ import { FormsModule} from '@angular/forms';
 import { ProfilesAllComponent } from './profiles-all.component';
 import { ProfileDetailsComponent } from './profile-details.component'
 
-import { FilterPipe } from '../../core/pipes/filter.pipe';
+import { PipesModule } from '../../core/pipes';
 
 @NgModule({
     declarations: [
         ProfilesAllComponent,
         ProfileDetailsComponent,
-
-        FilterPipe
     ],
     imports: [
         CommonModule,
         RouterModule,
         HttpModule,
         BrowserModule,
-        FormsModule
+        FormsModule,
+        PipesModule
     ],
     exports: [],
-    providers: [
-        FilterPipe
-    ]
+    providers: []
 })
 export class ProfileModule { }

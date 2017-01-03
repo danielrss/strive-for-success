@@ -3,12 +3,12 @@
         <h2 class="animated fadeInLeftBig">Discover <strong>Profiles</strong></h2>
         <p class="animated fadeInRightBig">Loop through current users catalogue</p>
     </div>
-    <div class="search">
+    <div class="search animated fadeInDownBig">
         <label for="filter">Search</label>
         <input class="form-control" id="search-box" placeholder="First name" [(ngModel)]="searchBox.value" (change)="onSearch(searchBox.value)" #searchBox />
     </div>
-    <div class="content" *ngFor="let user of (users | filter: searchBox.value)">
-        <div class="user-info overlay" id="{{user._id}}">
+    <div class="content animated fadeInUpBig">
+        <div class="user-info overlay" *ngFor="let user of (users | filter: searchBox.value)" id="{{user._id}}">
             <div class="user-cover" *ngIf="user.avatarUrl">
                 <img [src]="user.avatarUrl">
             </div>
