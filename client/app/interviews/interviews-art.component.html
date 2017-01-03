@@ -4,7 +4,7 @@
         <p class="animated fadeInRightBig">Loop through current interviews catalogue</p>
     </div>
     <div class="content-all" >
-        <div class="interview-info overlay" *ngFor="let interview of interviews" id="{{interview._id}}">
+        <div class="interview-info overlay" *ngFor="let interview of (interviews | interviewsSortPipe:'art')" id="{{interview._id}}">
             <div class="interview-cover">
                 <img src="{{interview.imageUrl}}">
             </div>
