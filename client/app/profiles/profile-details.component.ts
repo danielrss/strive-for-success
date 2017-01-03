@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../../core/models/user';
-
-import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../core/services/user.service';
+
 @Component({
     selector: 'app-profile-details',
     templateUrl: './profile-details.component.html',
@@ -22,7 +22,7 @@ export class ProfileDetailsComponent implements OnInit{
         this.userService.getUser(id)
                 .subscribe(user => this.user = user.user);
     }
-    
+
     get firstName(): string {
         return this.user.firstName;
     }

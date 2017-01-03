@@ -16,8 +16,12 @@ export class UserService {
 
     constructor(private api: ApiService, private authService: AuthService) {}
 
-    getUsers(): Observable<any> {
-        return this.api.get(this.usersPath);
+    getUsers(pageNumber: number = 1): Observable<any> {
+        return this.api.get(`${this.usersPath}/page/${pageNumber}`);
+    }
+
+    searchUsers(name: string): Observable<any> {
+        return this.api.get(`${this.usersPath}/search/${name}`);
     }
 
     registerUser(user: User): Observable<any> {
