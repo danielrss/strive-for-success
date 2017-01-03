@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Http} from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/Rx';
 
 import { AuthService, UserService } from '../../core/services';
 import { User } from '../../core/models/user';
+import { SortPipe } from '../../core/pipes';
 
-import { FilterPipe, OrderPipe, SortPipe } from '../../core/pipes';
 @Component({
     selector: 'app-profiles-all',
     templateUrl: './profiles-all.component.html',
@@ -19,9 +16,11 @@ export class ProfilesAllComponent implements OnInit {
     private searchOption: string;
 
     public users: User[];
-    constructor(private http: Http, private authService: AuthService, private userService: UserService, 
-        private filterPipe: FilterPipe, private orderPipe: OrderPipe, private sortPipe: SortPipe) {
-        this.users=[];
+    constructor(
+        private authService: AuthService,
+        private userService: UserService,
+        private sortPipe: SortPipe) {
+        this.users = [];
     }
 
     ngOnInit() {
@@ -50,11 +49,7 @@ export class ProfilesAllComponent implements OnInit {
         }
     }
 
-    onSort(options: any[]){
-        this.sortPipe.transform(this.users, options);
-    }
-
-    onOrder(options: any[]){
-        this.orderPipe.transform(this.users, options);
+    onSort(sortBy: string, order: string){
+        this.sortPipe.transform(this.users, sortBy, order);
     }
 }

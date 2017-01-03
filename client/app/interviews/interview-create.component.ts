@@ -39,14 +39,11 @@ export class InterviewCreateComponent implements OnInit {
     }
 
     public ngOnInit() {
-       this.title = this.form.controls['title'];
+        this.title = this.form.controls['title'];
         this.imageUrl = this.form.controls['imageUrl'];
-        // this.user = { email: JSON.parse(localStorage.getItem('user')).email };
-        this.user = this.userService.loggedInUser;
-        console.log(this.user);
-        // console.log(this.user.firstName);
         this.category = this.form.controls['category'];
         this.content = this.form.controls['content'];
+        this.user = this.userService.loggedInUser;
     }
 
     public onSubmit(values: Object): void {
@@ -70,7 +67,7 @@ export class InterviewCreateComponent implements OnInit {
                     const errorMessage = "Creation failed!";
                     this.alertService.error(errorMessage);
                   }, () => {
-                     setTimeout(() => this.router.navigateByUrl('/interviews/all'), 2500);
+                     setTimeout(() => this.router.navigateByUrl('/interviews/all'), 500);
                 });
         }
     }

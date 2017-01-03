@@ -5,20 +5,15 @@ import { User } from '../models/user'
     name: 'sort'
 })
 export class SortPipe implements PipeTransform{
-    transform(users: User[], options: any[]): any[]{
-        if(users && options){
-            return users.sort((a,b) => {
-                switch(options[0]){
-                    case 'FirstName':
-                        return options[1] > 0 ? a.firstName.localeCompare(b.firstName) : b.firstName.localeCompare(a.firstName);
-                    case 'LastName':
-                        return options[1] > 0 ? +a.lastName - +b.lastName : +b.lastName - +a.lastName;
-                    case 'Rating':
-                        return options[1] > 0 ? +a.rating - +b.rating : +b.rating - +a.rating;
-                }
+    transform(users: User[], sortBy: string, order: string): any[] {
+        if (order.indexOf('asc') > -1) {
+            return users.sort((m1, m2) => {
+                return m1[sortBy].toString().localeCompare(m2[sortBy].toString());
             });
         } else {
-            return users.sort();
+            return users.sort((m1, m2) => {
+                return m2[sortBy].toString().localeCompare(m1[sortBy].toString());
+            });
         }
     }
 }

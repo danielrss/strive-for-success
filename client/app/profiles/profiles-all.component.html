@@ -11,22 +11,22 @@
         <div class="pipes animated fadeInDownBig">
             <div class="sort">
                 <label for="sort">Sort</label>
-                <select class="form-control" id="sort" (change)="onSort([selectedSort.selectedOptions[0].value])" #selectedSort>
-                <option value="FirstName" selectedSort>FirstName</option>
-                <option value="LastName">LastName</option>
-                <option value="Rating">Rating</option>
+                <select class="form-control" id="sort" (change)="onSort(selectedSort.selectedOptions[0].value, selectedOrder.selectedOptions[0].value)" #selectedSort>
+                <option value="firstName" selected>FirstName</option>
+                <option value="lastName">LastName</option>
+                <option value="rating">Rating</option>
             </select>
             </div>
             <div class="order">
                 <label for="order">Order</label>
-                <select class="form-control" id="order" (change)="onOrder([selectedOrder.selectedOptions[0].value])" #selectedOrder>
-                <option value="Asc" selectedOrder>Asc</option>
-                <option value="Desc">Desc</option>
+                <select class="form-control" id="order" (change)="onSort(selectedSort.selectedOptions[0].value, selectedOrder.selectedOptions[0].value)" #selectedOrder>
+                <option value="asc" selected>Asc</option>
+                <option value="desc">Desc</option>
             </select>
             </div>
         </div>
         <div class="content-users animated fadeInUpBig">
-            <div class="user-info overlay" *ngFor="let user of (users | sort: [selectedSort.selectedOptions[0].value] | order: [selectedOrder.selectedOptions[0].value] | filter: searchInput.value)" id="{{user._id}}">
+            <div class="user-info overlay" *ngFor="let user of (users | sort: selectedSort.selectedOptions[0].value : selectedOrder.selectedOptions[0].value)" id="{{user._id}}">
                 <div class="user-cover" *ngIf="user.avatarUrl">
                     <img [src]="user.avatarUrl">
                 </div>
