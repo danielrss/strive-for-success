@@ -13,15 +13,14 @@ import { PipesModule } from '../../core/pipes';
 @NgModule({
     declarations: [
         ProfilesAllComponent,
-        ProfileDetailsComponent,
-        FilterPipe
+        ProfileDetailsComponent
     ],
     imports: [
         CommonModule,
         RouterModule,
         FormsModule,
         PipesModule,
-        RatingModule
+        RatingModule,
         InfiniteScrollModule
     ],
     exports: [],
