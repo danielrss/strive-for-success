@@ -46,7 +46,7 @@ export class ContactComponent {
                 let emailObj = {
                     name: values['name'],
                     email: values['email'],
-                    subject: values['subjects'],
+                    subject: values['subject'],
                     message: values['message'],
                 }
 
