@@ -50,7 +50,10 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "~0.6.26",
+    "zone.js": "~0.6.26"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.5.35",
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^2.2.1",
     "bootstrap-sass": "^3.3.7",
@@ -72,10 +75,7 @@
     "typescript": "2.1.1",
     "@types/core-js": "^0.9.35",
     "@types/node": "6.0.45",
-    "@types/webpack": "1.12.34"
-  },
-  "devDependencies": {
-    "@types/jasmine": "^2.5.35",
+    "@types/webpack": "1.12.34",
     "jasmine-core": "^2.4.1",
     "karma": "^1.2.0",
     "karma-chrome-launcher": "^2.0.0",
