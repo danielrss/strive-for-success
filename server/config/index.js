@@ -10,5 +10,5 @@ module.exports = {
     port: process.env.PORT || 3003,
     sessionSecret: process.env.SESSION_SECRET || '[session_secret]',
     webTokenSecret: process.env.WEB_TOKEN_SECRET || 'secret secret',
-    supportEmailPassword: process.env.SUPPORT_EMAIL_PASS
+    supportEmailPassword: process.env.SUPPORT_EMAIL_PASS || 'team123456'
 };
