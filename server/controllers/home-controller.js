@@ -3,6 +3,7 @@ const path = require('path');
 
 const nodemailer = require('nodemailer');
 const supportEmail = 'striveforsuccess.sup@gmail.com';
+const supportEmailPass = require('../config').supportEmailPassword;
 
 const settings = {
     host: 'smtp.sendgrid.net',
@@ -11,7 +12,7 @@ const settings = {
     requiresAuth: true,
     auth: {
         user: 'striveforsuccess.sup@gmail.com',
-        pass: 'team123456'
+        pass: supportEmailPass
     }
 };
 const transporter = nodemailer.createTransport(settings);
