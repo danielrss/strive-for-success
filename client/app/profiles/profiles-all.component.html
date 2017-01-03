@@ -3,9 +3,9 @@
         <h2 class="animated fadeInLeftBig">Discover <strong>Profiles</strong></h2>
         <p class="animated fadeInRightBig">Loop through current users catalogue</p>
     </div>
-    <div class="search">
+    <div class="search animated fadeInDownBig">
         <label for="filter">Search</label>
-        <input class="form-control" id="search-box" placeholder="First name" [(ngModel)]="searchBox.value" (change)="onSearch(searchBox.value)" #searchBox />
+        <input class="form-control" id="search-box" placeholder="Name" (keyup)="onSearch(searchInput.value)" #searchInput />
     </div>
     <div class="pipes">
         <div class="sort">
@@ -24,16 +24,18 @@
             </select>
         </div>
     </div>
-    <div class="content-users" *ngFor="let user of (users | sort: [selectedSort.selectedOptions[0].value] | order: [selectedOrder.selectedOptions[0].value] | filter: searchBox.value)">
-        <div class="user-info overlay" id="{{user._id}}">
-            <div class="user-cover" *ngIf="user.avatarUrl">
-                <img [src]="user.avatarUrl">
-            </div>
-            <div class="user-cover" *ngIf="!user.avatarUrl">
-                <img src="../../../public/images/profile.png">
-            </div>
-            <div class="options">
-                <h3><a routerLink="/users/{{user._id}}" routerLinkActive="active">{{user.firstName}} {{user.lastName}}</a></h3>
+    <div class="content animated fadeInUpBig">
+        <div class="users-container" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="scrollThrottle" (scrolled)="onScroll()">
+            <div class="user-info overlay" *ngFor="let user of users" id="{{user._id}}">
+                <div class="user-cover" *ngIf="user.avatarUrl">
+                    <img [src]="user.avatarUrl">
+                </div>
+                <div class="user-cover" *ngIf="!user.avatarUrl">
+                    <img src="../../../public/images/profile.png">
+                </div>
+                <div class="options">
+                    <h3><a routerLink="/users/{{user._id}}" routerLinkActive="active">{{user.firstName}} {{user.lastName}}</a></h3>
+                </div>
             </div>
         </div>
     </div>

@@ -9,6 +9,10 @@
     overflow: auto;
 }
 
+.users-container {
+    height: 100%
+}
+
 #profiles-all .profiles-caption {
     position: absolute;
     margin-top: 20px;

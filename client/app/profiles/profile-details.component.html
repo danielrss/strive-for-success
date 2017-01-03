@@ -1,6 +1,6 @@
 <div class="container-profile-details parallax">
     <div class="title">
-        <h1>{{user.firstName}} {{user.lastName}}'s profile</h1>
+        <h1>{{firstName}} {{lastName}}'s profile</h1>
     </div>
     <div class="user-info" id="{{_id}}">
         <div class="user-cover" id="profile-avatar" *ngIf="avatarUrl">
@@ -10,16 +10,16 @@
             <img src="../../../public/images/profile.png">
         </div>
         <div class="options">
-            <h3><label class="user-detail">Email:</label> {{ email }}</h3>
-            <h3><label class="user-detail">First name:</label> {{ firstName }}</h3>
-            <h3><label class="user-detail">Last name:</label> {{ lastName }}</h3>
-            <h3><label class="user-detail">Age:</label> {{ age }}</h3>
+            <h3><label class="user-detail">Email:</label> {{email}}</h3>
+            <h3><label class="user-detail">First name:</label> {{firstName}}</h3>
+            <h3><label class="user-detail">Last name:</label> {{lastName}}</h3>
+            <h3><label class="user-detail">Age:</label> {{age}}</h3>
         </div>
         <br>
-        <div class="interview">
-            <h3 class="interview-title">Personal interview: {{ title }}</h3>
+        <div class="interview" *ngIf="interview">
+            <h3 class="interview-title">{{interview.title}}</h3>
             <ul>
-                <li *ngFor="let question of interview">
+                <li *ngFor="let question of interview.questions">
                     <h4><label class="user-firstname">Q:</label> {{question.title}}</h4>
                     <h4><label class="user-firstname">A:</label> {{question.answer}}</h4>
                     <br>

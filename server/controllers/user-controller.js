@@ -5,34 +5,43 @@ const helpers = require('../helpers'),
 
 module.exports = function(data) {
     return {
-        getAllUsers(req, res) {
-            return Promise.resolve()
-                .then(() => {
-                    return data.getAllUsers();
-                })
+        getUsers(req, res) {
+            let usersPerPage = 10;
+            return data.getUsers(usersPerPage, req.params.page)
                 .then((users => {
                     if (!users) {
                         throw new Error('No users found!');
                     }
-                    res.status(200)
-                        .json(users);
+
+                    res.status(200).json({ message: 'success', users });
                 }))
                 .catch(err => {
                     res.status(400)
                         .json({ validationErrors: helpers.errorHelper(err) });
                 });
         },
-        getUserById(req, res) {
-            return Promise.resolve()
-                .then(() => {
-                    return data.getUserById(req.params.id);
-                })
-                .then((user => {
-                    if (!user) {
-                        throw new Error('No such user!');
+        getAllUsers(req, res) {
+            return data.getAllUsers()
+                .then((users => {
+                    if (!users) {
+                        throw new Error('No users found!');
                     }
-                    res.status(200)
-                        .json(user);
+
+                    res.status(200).json({ message: 'success', users });
+                }))
+                .catch(err => {
+                    res.status(400)
+                        .json({ validationErrors: helpers.errorHelper(err) });
+                });
+        },
+        searchUsers(req, res) {
+            return data.searchUsers(req.params.name)
+                .then((users => {
+                    if (!users) {
+                        throw new Error('No users found!');
+                    }
+
+                    res.status(200).json({ message: 'success', users });
                 }))
                 .catch(err => {
                     res.status(400)

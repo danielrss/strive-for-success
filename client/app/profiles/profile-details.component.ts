@@ -10,7 +10,7 @@ import { UserService } from '../../core/services/user.service';
     styleUrls: ['./profile-details.component.css']
 })
 export class ProfileDetailsComponent implements OnInit{
-    private user: User
+    private user: User;
 
     constructor(private userService: UserService, private activatedRoute: ActivatedRoute){
         this.user = {} as User;
@@ -21,7 +21,7 @@ export class ProfileDetailsComponent implements OnInit{
         this.userService.getUser(id)
                 .subscribe(user => this.user = user.user);
     }
-    
+
     get firstName(): string {
         return this.user.firstName;
     }

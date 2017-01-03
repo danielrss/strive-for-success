@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { InterviewsMainComponent } from './interviews-main.component';
@@ -12,6 +11,8 @@ import { InterviewsArtComponent } from './interviews-art.component';
 import { InterviewsBusinessComponent } from './interviews-business.component';
 import { InterviewsTechnologyComponent } from './interviews-technology.component';
 import { PipesModule } from '../../core/pipes';
+import { InterviewsFilterPipe } from '../../core/pipes';
+import { FilterPipe } from '../../core/pipes'
 
 @NgModule({
     declarations: [
@@ -26,12 +27,14 @@ import { PipesModule } from '../../core/pipes';
     imports: [
         CommonModule,
         RouterModule,
-        HttpModule,
         FormsModule,
         ReactiveFormsModule,
         PipesModule
     ],
     exports: [],
-    providers: []
+    providers: [ 
+        InterviewsFilterPipe,
+        FilterPipe 
+    ]
 })
 export class InterviewModule { }

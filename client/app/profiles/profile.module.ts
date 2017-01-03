@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { RatingModule } from 'ng2-rating';
 
 import { ProfilesAllComponent } from './profiles-all.component';
@@ -19,11 +18,10 @@ import { PipesModule } from '../../core/pipes';
     imports: [
         CommonModule,
         RouterModule,
-        HttpModule,
-        BrowserModule,
         FormsModule,
+        PipesModule,
         RatingModule,
-        PipesModule
+        InfiniteScrollModule
     ],
     exports: [],
     providers: []

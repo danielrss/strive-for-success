@@ -18,6 +18,8 @@ module.exports = function(app, passport, express, data) {
         .post('/register', authController.register)
         .get('/:id', userController.getProfile)
         .post('/:id', userController.updateProfile)
+        .get('/search/:name', userController.searchUsers)
+        .get('/page/:page', userController.getUsers)
         .get('/', userController.getAllUsers);
     // .get('/profile/avatar', userController.getProfileAvatar)
     // .post('/profile/avatar', userController.uploadProfileAvatar)
