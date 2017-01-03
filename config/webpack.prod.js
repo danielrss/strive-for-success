@@ -19,7 +19,7 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [
     new webpack.NoErrorsPlugin(),
-    // new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(ENV)
