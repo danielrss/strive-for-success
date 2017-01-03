@@ -15,10 +15,15 @@
 |Лорияна Дончева |__Loriyanaa__            	|
 |Христина Илиева |__Hristina_Ilieva__    	 	|
 
-# EventsManagementSystem
+# StriveForSuccess
 
 ### This project is a Single Page application where everyone can get inspired from someone else. Everyone can access it.
 
 ### The application is accessable for everyone at [https://striveforsuccess.herokuapp.com](https://striveforsuccess.herokuapp.com)
 
-
+#  How to start the application:
+- Open CMD/Terminal and navigate to the checked-out repository with the application
+- Run `npm install` in the CMD/Terminal
+- Run `npm run build:prod` in the CMD/Terminal
+- Run `npm start` and you should see a message like: `Application is running at http://localhost:3003`
+- Now you can open the application by browsing to `http://localhost:3003/`
