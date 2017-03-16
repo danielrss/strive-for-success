@@ -7,15 +7,14 @@
 
 [Description](https://github.com/TeamTODOPASS/strive-for-success/blob/master/project-description.md)
 
-###:mortar_board:Team Members
+### Team Members
 | Name              | Academy Username      	|
 |-------------------|-------------------|
-|                   | :white_check_mark:|
-|Даниел Исов |__Daniel_Isov__	        |
-|Лорияна Дончева |__Loriyanaa__            	|
-|Христина Илиева |__Hristina_Ilieva__    	 	|
+|Даниел Исов        |__Daniel_Isov__	        |
+|Лорияна Дончева    |__Loriyanaa__            |
+|Христина Илиева    |__Hristina_Ilieva__    	|
 
-# StriveForSuccess
+# [StriveForSuccess](https://striveforsuccess.herokuapp.com)
 
 ### This project is a Single Page application where everyone can get inspired from someone else. Everyone can access it.
 
